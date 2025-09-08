@@ -38,4 +38,3 @@ coding!
 - Teammate name #2: Cat Young [GitHub](https://github.com/CatYoung018) / [LinkedIn](https://linkedin.com/in/catrilliayoung)
 - Teammate name #3: Nikoo Nasrpooya [GitHub](https://github.com/NikooNasrpooya) / [LinkedIn](https://www.linkedin.com/in/nikoo-nasrpooya/)
 - Teammate name #4: Abdullah Corduk [GitHub](https://github.com/corduka) / [LinkedIn](https://www.linkedin.com/in/cordukabdullah/)
--
