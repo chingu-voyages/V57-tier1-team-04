@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Headings */
+h1 {
+  margin: 2rem 0;
+  font-size: 2.25rem; /* 36px */
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+
+h2 {
+  margin: 1.5rem 0;
+  font-size: 1.5rem; /* 24px */
+  text-align: center;
+}
+
+p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Images */
+img {
+  max-width: 150px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  border-top: 8px solid #63b2d8;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.main-title {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* align vertically */
+  gap: 6rem;
+}
+
+/* NavTabs */
+nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+nav a {
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: 1.5px solid #63b2d8;
+  border-radius: 0.8rem;
+  background: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #63b2d8;
+  color: white;
+}
+
+nav a.active {
+  background-color: #63b2d8;
+  color: white;
+}
+
+/* Main content */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1000px;
+  border: 2px solid #63b2d8;
+  border-radius: 15px;
+  padding: 20px;
+  background: white;
+  margin: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #63b2d8;
+  color: white;
+}
+
+footer ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: center;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+footer li {
+  margin: 0 0.5rem;
+  font-weight: lighter;
+}
+
+footer p {
+  margin: 0.5rem 0 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  nav {
+    gap: 0.5rem;
+  }
+
+  .main-content {
+    margin: 0.5rem;
+    padding: 15px;
+  }
+}

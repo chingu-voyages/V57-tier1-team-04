@@ -1,41 +1,86 @@
-# voyage-tasks
+# 🖥️ Merge Monitor – PR Status Board
 
-Your project's `readme` is as important to success as your code. For
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+A **React.js + Node.js** web application to track and visualize your team’s Pull Requests (PRs) across repositories.  
+Designed as a **Single Page Application (SPA)** with clean navigation and filters, Merge Monitor helps development teams stay productive by keeping PR reviews and merges transparent.
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point -
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+---
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+## 📌 Table of Contents
 
-> Own it & Make it your Own!
+- [Overview](#-overview)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Available Scripts](#-available-scripts)
+- [Screenshots](#-screenshots)
+- [MVP Checklist](#-mvp-checklist)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-## Team Documents
+---
 
-You may find these helpful as you work together to organize your project.
+## 📖 Overview
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+Merge Monitor is a **PR Status Board** that allows your team to:
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+- Quickly check **open**, **closed**, and **merged** pull requests.
+- Filter PRs based on status (e.g., rejected vs merged).
+- View contributors at a glance.
+- Centralize collaboration and reduce bottlenecks in code reviews.
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+Built with **React Router** for smooth SPA navigation and a modern UI styled with **CSS** (Tailwind optional for future use).
 
-## Our Team
+---
 
-Everyone on your team should add their name along with a link to their GitHub
-& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team _before_ you start
-coding!
+## ✨ Features
 
-- Teammate name #1: Gursimran Singh [GitHub](https://github.com/Gursimranb127) / [LinkedIn](https://www.linkedin.com/in/gursimransinghonly)
-- Teammate name #2: Cat Young [GitHub](https://github.com/CatYoung018) / [LinkedIn](https://linkedin.com/in/catrilliayoung)
-- Teammate name #3: Nikoo Nasrpooya [GitHub](https://github.com/NikooNasrpooya) / [LinkedIn](https://www.linkedin.com/in/nikoo-nasrpooya/)
-- Teammate name #4: Abdullah Corduk [GitHub](https://github.com/corduka) / [LinkedIn](https://www.linkedin.com/in/cordukabdullah/)
--
+- **🔑 Authentication (Google/GitHub)** – secure login for team members.
+- **🏠 Home Tab** – introduction and quick overview of the board.
+- **📂 Open PRs Tab** – see all pull requests currently awaiting review.
+- **✅ Closed PRs Tab** – track merged/rejected PRs with filters:
+  - Show only rejected/closed
+  - Show only merged
+- **👨‍💻 Contributors Tab** – list of all contributors and activity.
+- **🔄 SPA Navigation** – built with React Router.
+- **📱 Responsive Design** – mobile-friendly layout.
+- **⏰ Live Clock** in the header (optional).
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+
+- React.js (Vite)
+- React Router
+- CSS (custom)
+- TailwindCSS
+
+**Backend:**
+
+- Node.js
+- Express (planned for API routes)
+
+**Other:**
+
+- GitHub API (for fetching PRs & contributors)
+- Google/GitHub OAuth (for authentication)
+
+---
+
+## 📂 Project Structure
+
+```bash
+merge-monitor/
+├── public/                 # Static assets
+├── src/
+│   ├── assets/             # Images, logos
+│   ├── components/         # Reusable components (NavTabs, Header, Footer, etc.)
+│   ├── pages/              # Page-level components (Home, OpenPRs, ClosedPRs, Contributors)
+│   ├── App.jsx             # Main app with routes
+│   ├── main.jsx            # React entry point
+│   └── styles/             # CSS files
+├── package.json
+└── README.md
+```
