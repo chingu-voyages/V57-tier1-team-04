@@ -1,21 +1,16 @@
-import Home from "../pages/Home.jsx";
-import OpenPRs from "../pages/OpenPRs.jsx";
-import ClosedPRs from "../pages/ClosedPRs.jsx";
-import Contributors from "../pages/Contributors.jsx";
+import Header from "../components/Header";
+import NavTabs from "../components/NavTabs";
+import Footer from "../components/Footer";
 
-function MainContent({ activeTab }) {
-  switch (activeTab) {
-    case "home":
-      return <Home />;
-    case "open-prs":
-      return <OpenPRs />;
-    case "closed-prs":
-      return <ClosedPRs />;
-    case "contributors":
-      return <Contributors />;
-    default:
-      return <Home />;
-  }
+function MainLayout({ children }) {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <NavTabs />
+      <main className="flex-grow p-4">{children}</main>
+      <Footer />
+    </div>
+  );
 }
 
-export default MainContent;
+export default MainLayout;

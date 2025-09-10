@@ -1,24 +1,54 @@
 function Home() {
   return (
-    <section>
-      <div className="main-content">
-        <h2>Track and manage your team’s pull requests easily</h2>
+    <div className="main-content">
+      <h2>Welcome to PR Status Board 🚀</h2>
+      <p>
+        Stay on top of your team’s workflow with a single glance. The{" "}
+        <strong>PR Status Board</strong> helps you track all pull requests —
+        whether they’re open, merged, or closed — in one centralized dashboard.
+      </p>
+
+      <section>
+        <h3>🔑 Key Features</h3>
+        <ul>
+          <li>
+            📂 <strong>Open PRs</strong> – see what’s waiting for review or
+            approval.
+          </li>
+          <li>
+            ✅ <strong>Closed PRs</strong> – filter by <em>merged</em> or{" "}
+            <em>rejected</em> outcomes.
+          </li>
+          <li>
+            👥 <strong>Contributors</strong> – track who’s actively
+            collaborating on your repo.
+          </li>
+          <li>
+            📊 <strong>Real-time insights</strong> – stay updated with your
+            team’s progress.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>🚀 Why use PR Status Board?</h3>
         <p>
-          This application helps your development team stay organized by
-          displaying the status of open and closed pull requests in one place.
-          Use the navigation tabs above to view currently open PRs, recently
-          closed ones, and explore contributor activity. Filters allow you to
-          quickly find merged or rejected PRs, ensuring smooth collaboration and
-          faster reviews.
+          Teams often struggle with <em>delayed reviews</em> and
+          <em>unclear PR ownership</em>. PR Status Board keeps everyone aligned,
+          reduces bottlenecks, and helps you deliver faster.
         </p>
+      </section>
+
+      <section>
+        <h3>🧭 Get Started</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam minima
-          sequi, aperiam doloremque est tenetur? Laborum id quidem nobis in
-          aliquid iure molestiae libero! Iusto reiciendis laboriosam qui veniam
-          nulla! Nemo ipsa atque optio! Odio quasi libero ullam pariatur ex.
+          Use the tabs above to navigate between
+          <strong>Open PRs</strong>, <strong>Closed PRs</strong>, and
+          <strong>Contributors</strong>.
         </p>
-      </div>
-    </section>
+        <p>Ready to ship better code? Let’s dive in! 🚀</p>
+      </section>
+    </div>
   );
 }
 

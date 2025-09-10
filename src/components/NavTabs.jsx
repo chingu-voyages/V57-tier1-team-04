@@ -1,30 +1,44 @@
-function NavTabs({ activeTab, setActiveTab }) {
+import { NavLink } from "react-router-dom";
+
+function NavTabs() {
+  const baseStyle = "px-4 py-2 rounded-md";
+  const activeStyle = "bg-blue-600 text-white";
+  const inactiveStyle = "text-gray-700 hover:bg-gray-200";
+
   return (
     <nav>
-      <button
-        className={activeTab === "home" ? "active" : ""}
-        onClick={() => setActiveTab("home")}
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
+        }
       >
         Home
-      </button>
-      <button
-        className={activeTab === "open-prs" ? "active" : ""}
-        onClick={() => setActiveTab("open-prs")}
+      </NavLink>
+      <NavLink
+        to="/open-prs"
+        className={({ isActive }) =>
+          `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
+        }
       >
-        <i class="fa-solid fa-code-pull-request"></i> Open PRs
-      </button>
-      <button
-        className={activeTab === "closed-prs" ? "active" : ""}
-        onClick={() => setActiveTab("closed-prs")}
+        Open PRs
+      </NavLink>
+      <NavLink
+        to="/closed-prs"
+        className={({ isActive }) =>
+          `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
+        }
       >
-        <i class="fa-solid fa-code-merge"></i> Closed PRs
-      </button>
-      <button
-        className={activeTab === "contributors" ? "active" : ""}
-        onClick={() => setActiveTab("contributors")}
+        Closed PRs
+      </NavLink>
+      <NavLink
+        to="/contributors"
+        className={({ isActive }) =>
+          `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
+        }
       >
-        <i class="fa-solid fa-users-line"></i> Contributors
-      </button>
+        Contributors
+      </NavLink>
     </nav>
   );
 }

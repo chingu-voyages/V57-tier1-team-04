@@ -1,20 +1,24 @@
-import { useState } from "react";
-import "./App.css";
-import Header from "./components/Header.jsx";
-import NavTabs from "./components/NavTabs.jsx";
-import MainContent from "./components/MainContent.jsx";
-import Footer from "./components/Footer.jsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MainContent from "./components/MainContent";
+
+// Pages
+import Home from "./pages/Home";
+import OpenPRs from "./pages/OpenPRs";
+import ClosedPRs from "./pages/ClosedPRs";
+import Contributors from "./pages/Contributors";
 
 function App() {
-  const [activeTab, setActiveTab] = useState("home");
-
   return (
-    <>
-      <Header />
-      <NavTabs activeTab={activeTab} setActiveTab={setActiveTab} />
-      <MainContent activeTab={activeTab} />
-      <Footer />
-    </>
+    <Router>
+      <MainContent>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/open-prs" element={<OpenPRs />} />
+          <Route path="/closed-prs" element={<ClosedPRs />} />
+          <Route path="/contributors" element={<Contributors />} />
+        </Routes>
+      </MainContent>
+    </Router>
   );
 }
 
