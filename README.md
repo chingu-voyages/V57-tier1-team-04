@@ -1,12 +1,86 @@
-# React + Vite
+# 🖥️ Merge Monitor – PR Status Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **React.js + Node.js** web application to track and visualize your team’s Pull Requests (PRs) across repositories.  
+Designed as a **Single Page Application (SPA)** with clean navigation and filters, Merge Monitor helps development teams stay productive by keeping PR reviews and merges transparent.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Table of Contents
 
-## Expanding the ESLint configuration
+- [Overview](#-overview)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+- [Available Scripts](#-available-scripts)
+- [Screenshots](#-screenshots)
+- [MVP Checklist](#-mvp-checklist)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📖 Overview
+
+Merge Monitor is a **PR Status Board** that allows your team to:
+
+- Quickly check **open**, **closed**, and **merged** pull requests.
+- Filter PRs based on status (e.g., rejected vs merged).
+- View contributors at a glance.
+- Centralize collaboration and reduce bottlenecks in code reviews.
+
+Built with **React Router** for smooth SPA navigation and a modern UI styled with **CSS** (Tailwind optional for future use).
+
+---
+
+## ✨ Features
+
+- **🔑 Authentication (Google/GitHub)** – secure login for team members.
+- **🏠 Home Tab** – introduction and quick overview of the board.
+- **📂 Open PRs Tab** – see all pull requests currently awaiting review.
+- **✅ Closed PRs Tab** – track merged/rejected PRs with filters:
+  - Show only rejected/closed
+  - Show only merged
+- **👨‍💻 Contributors Tab** – list of all contributors and activity.
+- **🔄 SPA Navigation** – built with React Router.
+- **📱 Responsive Design** – mobile-friendly layout.
+- **⏰ Live Clock** in the header (optional).
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+
+- React.js (Vite)
+- React Router
+- CSS (custom)
+- TailwindCSS
+
+**Backend:**
+
+- Node.js
+- Express (planned for API routes)
+
+**Other:**
+
+- GitHub API (for fetching PRs & contributors)
+- Google/GitHub OAuth (for authentication)
+
+---
+
+## 📂 Project Structure
+
+```bash
+merge-monitor/
+├── public/                 # Static assets
+├── src/
+│   ├── assets/             # Images, logos
+│   ├── components/         # Reusable components (NavTabs, Header, Footer, etc.)
+│   ├── pages/              # Page-level components (Home, OpenPRs, ClosedPRs, Contributors)
+│   ├── App.jsx             # Main app with routes
+│   ├── main.jsx            # React entry point
+│   └── styles/             # CSS files
+├── package.json
+└── README.md
+```
