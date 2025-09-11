@@ -138,3 +138,19 @@ footer p {
     padding: 15px;
   }
 }
+
+#not-found {
+  min-width: 400px !important;
+}
+.not-found {
+  height: 70vh;
+  width: 80%;
+  background-image: url("../src/assets/404.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
