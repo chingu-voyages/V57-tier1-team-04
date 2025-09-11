@@ -2,7 +2,7 @@ function ClosedPRs() {
   return (
     <section>
       <div className="main-content">
-        <h2>Closed Pull Requests</h2>
+        <h2 className="main-h2">Closed Pull Requests</h2>
         <p>Lorem ipsum dolor sit amet.</p>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam minima

@@ -1,7 +1,7 @@
 function Home() {
   return (
     <div className="main-content">
-      <h2>Welcome to PR Status Board 🚀</h2>
+      <h2 className="main-h2">Welcome to PR Status Board 🚀</h2>
       <p>
         Stay on top of your team’s workflow with a single glance. The{" "}
         <strong>PR Status Board</strong> helps you track all pull requests —

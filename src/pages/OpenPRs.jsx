@@ -2,7 +2,7 @@ function OpenPRs() {
   return (
     <section>
       <div className="main-content">
-        <h2>Open Pull Requests</h2>
+        <h2 className="main-h2">Open Pull Requests</h2>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis
           illo expedita impedit atque at accusantium aperiam ad, eligendi,

@@ -4,12 +4,10 @@ function Header() {
   return (
     <header>
       <Link to="/">
-        <img src="../src/assets/logo.png" />
+        <img className="logo" src="../src/assets/logo.png" />
       </Link>
       <div className="main-title">
-        <h1 className="text-blue-400 text-3xl font-bold underline">
-          Merge Monitor
-        </h1>
+        <h1 className="main-heading">Merge Monitor</h1>
         <span>07:23 AM</span>
       </div>
     </header>

@@ -2,7 +2,7 @@ function Contributors() {
   return (
     <section>
       <div className="main-content">
-        <h2>Contributors</h2>
+        <h2 className="main-h2">Contributors</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam minima
           sequi, aperiam doloremque est tenetur? Laborum id quidem nobis in
