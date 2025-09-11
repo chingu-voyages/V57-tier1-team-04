@@ -7,7 +7,7 @@ function Header() {
         <img src="../src/assets/logo.png" />
       </Link>
       <div className="main-title">
-        <h1>Merge Monitor</h1>
+        <h1 className="color-white">Merge Monitor</h1>
         <span>07:22 AM</span>
       </div>
     </header>

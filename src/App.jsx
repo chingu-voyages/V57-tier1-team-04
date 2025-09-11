@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MainContent from "./components/MainContent";
-
 // Pages
 import Home from "./pages/Home";
 import OpenPRs from "./pages/OpenPRs";
