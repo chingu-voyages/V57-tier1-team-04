@@ -1,3 +1,11 @@
+@import "tailwindcss";
+
+@layer base {
+  h2 {
+    @apply text-4xl font-semibold text-blue-600 my-3;
+  }
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 body {

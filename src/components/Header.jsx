@@ -10,7 +10,7 @@ function Header() {
         <h1 className="text-blue-400 text-3xl font-bold underline">
           Merge Monitor
         </h1>
-        <span>07:22 AM</span>
+        <span>07:23 AM</span>
       </div>
     </header>
   );
