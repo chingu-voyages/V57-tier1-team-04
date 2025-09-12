@@ -16,6 +16,10 @@
 }
 
 @layer components {
+  .header {
+    @apply flex justify-center gap-20 my-12;
+  }
+
   .main-heading {
     @apply text-4xl;
   }
@@ -23,8 +27,9 @@
     @apply text-center text-[1.5rem] text-[#60B8DE] mx-1 my-3;
   }
   .logo {
-    @apply mb-10;
+    @apply mb-10 block;
   }
+
   .nav-bar {
     @apply flex justify-center gap-4;
   }
