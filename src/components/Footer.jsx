@@ -6,22 +6,22 @@ function Footer() {
         Coded with 🩵 by <b>Team Blue</b>
       </p>
       <ul>
-        <li>
+        <li className="team-member">
           <a href="https://github.com/corduka" target="_blank">
             Abdullah
           </a>
         </li>
-        <li>
+        <li className="team-member">
           <a href="https://github.com/NikooNasrpooya" target="_blank">
             Nikoo
           </a>
         </li>{" "}
-        <li>
+        <li className="team-member">
           <a href="https://github.com/CatYoung018" target="_blank">
             Cat
           </a>
         </li>{" "}
-        <li>
+        <li className="team-member">
           <a href="https://github.com/Gursimranb127" target="_blank">
             Gursimran
           </a>

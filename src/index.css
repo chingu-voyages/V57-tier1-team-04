@@ -71,4 +71,8 @@
   nav {
     @apply gap-4 md:gap-2; /* default gap-4, smaller gap on md (768px and below) */
   }
+
+  .team-member:hover {
+    @apply font-bold transition duration-300 hover:scale-110;
+  }
 }
