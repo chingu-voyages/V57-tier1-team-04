@@ -6,10 +6,26 @@ function Footer() {
         Coded with 🩵 by <b>Team Blue</b>
       </p>
       <ul>
-        <li>Abdullah</li>
-        <li>Nikoo</li>
-        <li>Cat</li>
-        <li>Gursimran</li>
+        <li>
+          <a href="https://github.com/corduka" target="_blank">
+            Abdullah
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/NikooNasrpooya" target="_blank">
+            Nikoo
+          </a>
+        </li>{" "}
+        <li>
+          <a href="https://github.com/CatYoung018" target="_blank">
+            Cat
+          </a>
+        </li>{" "}
+        <li>
+          <a href="https://github.com/Gursimranb127" target="_blank">
+            Gursimran
+          </a>
+        </li>
       </ul>
     </footer>
   );

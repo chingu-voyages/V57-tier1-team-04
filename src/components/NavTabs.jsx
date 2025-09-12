@@ -6,7 +6,7 @@ function NavTabs() {
   const inactiveStyle = "text-gray-700 hover:bg-gray-200";
 
   return (
-    <nav>
+    <nav className="nav-bar">
       <NavLink
         to="/"
         className={({ isActive }) =>
