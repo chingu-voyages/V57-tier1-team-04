@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function NavTabs() {
   const baseStyle = "px-4 py-2 rounded-md";
-  const activeStyle = "bg-blue-600 text-white";
+  const activeStyle = "bg-[#60B8DE] text-white";
   const inactiveStyle = "text-gray-700 hover:bg-gray-200";
 
   return (

@@ -25,18 +25,13 @@
   .logo {
     @apply mb-10;
   }
-  nav a {
+  .nav-bar {
+    @apply flex justify-center gap-4;
+  }
+
+  .nav-bar a {
     @apply text-base px-5 py-2 border-[1.5px] border-[#60B8DE] rounded-xl bg-transparent cursor-pointer no-underline text-[#333] transition-all duration-300;
   }
-
-  nav a:hover {
-    @apply bg-[#60B8DE] text-white;
-  }
-
-  nav a.active {
-    @apply bg-[#60B8DE] text-white;
-  }
-
   /* Main content */
   main {
     @apply flex-1 flex justify-center p-4;
