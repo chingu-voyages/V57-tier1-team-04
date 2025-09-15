@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+@layer base {
+  body {
+    @apply m-0 p-0 min-h-screen flex flex-col bg-[#f9f9f9] text-[#333] font-['Poppins',sans-serif];
+  }
+
+  p {
+    @apply my-2 text-base leading-relaxed;
+  }
+
+  img {
+    @apply w-[120px] h-auto mx-auto block;
+  }
+}
+
+@layer components {
+  .main-heading {
+    @apply text-4xl;
+  }
+  .main-h2 {
+    @apply text-center text-[1.5rem] text-[#60B8DE] mx-1 my-3;
+  }
+  .logo {
+    @apply mb-10;
+  }
+  .nav-bar {
+    @apply flex justify-center gap-4;
+  }
+
+  .nav-bar a {
+    @apply text-base px-5 py-2 border-[1.5px] border-[#60B8DE] rounded-xl bg-transparent cursor-pointer no-underline text-[#333] transition-all duration-300;
+  }
+  /* Main content */
+  main {
+    @apply flex-1 flex justify-center p-4;
+  }
+
+  .main-content {
+    @apply m-2 p-4 md:m-2 md:p-4 w-full max-w-[1000px] border-2 border-[#60B8DE] rounded-xl bg-white;
+  }
+
+  /* Footer */
+  footer {
+    @apply text-center p-4 bg-[#60B8DE] text-white;
+  }
+
+  footer ul {
+    @apply flex list-none justify-center p-0 mt-2 mb-0;
+  }
+
+  footer li {
+    @apply mx-2 font-light;
+  }
+
+  footer p {
+    @apply mt-2 mb-0;
+  }
+  /* Not Found Page */
+  .not-found {
+    @apply h-[70vh] w-4/5 bg-cover bg-center bg-no-repeat flex justify-center items-center text-center;
+    background-image: url("../src/assets/404.gif");
+  }
+  /* Responsive */
+  nav {
+    @apply gap-4 md:gap-2; /* default gap-4, smaller gap on md (768px and below) */
+  }
+
+  .team-member:hover {
+    @apply font-bold transition duration-300 hover:scale-110;
+  }
+}
