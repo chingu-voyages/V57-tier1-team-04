@@ -8,7 +8,7 @@ function Header() {
       </Link>
       <div className="header">
         <h1 className="main-heading">Merge Monitor</h1>
-        <span>07:23 AM</span>
+        <span>07:21 AM</span>
       </div>
     </header>
   );
