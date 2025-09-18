@@ -6,6 +6,7 @@ import OpenPRs from "./pages/OpenPRs";
 import ClosedPRs from "./pages/ClosedPRs";
 import Contributors from "./pages/Contributors";
 import NotFoundPage from "./pages/NotFoundPage";
+import PrListPage from "./pages/prFullBacklog";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/open-prs" element={<OpenPRs />} />
           <Route path="/closed-prs" element={<ClosedPRs />} />
           <Route path="/contributors" element={<Contributors />} />
+          <Route path="/pr-list/:filter" element={<PrListPage/>}/>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </MainContent>
