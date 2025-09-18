@@ -1,20 +1,22 @@
-function OpenPRs() {
+import PRDashboard from "../components/prComponents/PrList";
+import { Link } from "react-router-dom";
+
+
+function OpenPRs({filterState="open"}) {
+
   return (
-    <section>
-      <div className="main-content">
-        <h2 className="main-h2">Open Pull Requests</h2>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis
-          illo expedita impedit atque at accusantium aperiam ad, eligendi,
-          repudiandae voluptas et minus cupiditate quasi id delectus esse
-          officia assumenda voluptates?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam minima
-          sequi, aperiam doloremque est tenetur? Laborum id quidem nobis in
-          aliquid iure molestiae libero! Iusto reiciendis laboriosam qui veniam
-          nulla! Nemo ipsa atque optio! Odio quasi libero ullam pariatur ex.
-        </p>
+    <section className="flex items-center justify-center">
+      <div className="main-content flex flex-col items-center bg-gray-100">
+        <h2 className="main-h2 mb-4">Open Pull Requests</h2>
+
+        <PRDashboard filterState={filterState} />
+
+        <Link 
+          to="/pr-list/open"
+          className=" px-6 py-2  bg-[#60B8DE] text-white rounded-lg hover:bg-blue-700 transition-colors mx-auto"
+        >
+          More
+        </Link>
       </div>
     </section>
   );
