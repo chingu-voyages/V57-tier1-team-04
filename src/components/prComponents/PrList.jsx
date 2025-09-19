@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Octokit } from "octokit";
 import PROverviewCard from "./PrCard";
 
-const PrList = ({ state = "open", onDataFetched, showDownloadButton = false }) => {
+const PrList = ({ state = "open", onDataFetched, showDownloadButton = false, search }) => {
   const [prs, setPrs] = useState([]);
   const [error, setError] = useState(null);
 
@@ -18,6 +18,7 @@ const fetchPRs = useCallback(async () => {
         owner: import.meta.env.VITE_GITHUB_ORG,
         repo: import.meta.env.VITE_GITHUB_REPO_NAME,
         state: state,
+        per_page: 100,
         headers: {
           "X-GitHub-Api-Version": "2022-11-28",
         },
@@ -38,6 +39,13 @@ const fetchPRs = useCallback(async () => {
   useEffect(() => {
     fetchPRs();
   }, [fetchPRs]);
+
+  const filteredAndSearchedPRs = prs.filter(pr =>
+    pr.title.toLowerCase().includes(search.toLowerCase()) ||
+    pr.user.login.toLowerCase().includes(search.toLowerCase()) ||
+    pr.body.toLowerCase().includes(search.toLowerCase())
+  );
+
   if (error) {
     return (
       <div className="text-red-600 text-center py-4">
@@ -48,9 +56,9 @@ const fetchPRs = useCallback(async () => {
 
 return (
   <div>
-    {prs.length > 0 ? (
+    {filteredAndSearchedPRs.length > 0 ? (
       <div className="flex flex-col gap-4">
-        {prs.map((pr) => (
+        {filteredAndSearchedPRs.map((pr) => (
           <PROverviewCard key={pr.id} pr={pr} />    
         ))}
         {showDownloadButton && (

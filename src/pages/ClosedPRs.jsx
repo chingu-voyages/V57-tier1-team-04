@@ -24,6 +24,7 @@ function ClosedPRs({state="closed"}) {
 state={state} 
 showDownloadButton={true}
 onDataFetched={handleDataFetched} 
+search=""
 />
 
         {prData && (

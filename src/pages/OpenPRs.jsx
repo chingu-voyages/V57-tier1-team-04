@@ -24,6 +24,7 @@ function OpenPRs({state="open"}) {
 state={state} 
 showDownloadButton={true}
 onDataFetched={handleDataFetched} 
+search=""
 />
 
         {prData && (
