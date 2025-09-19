@@ -1,94 +1,77 @@
+import { useState, useEffect, useCallback } from "react";
+import { Octokit } from "octokit";
 import PROverviewCard from "./PrCard";
 
-const mockPRs = [
-  {
-    id: 1,
-    number: 101,
-    title: "Add login flow",
-    body: "Implemented login with JWT",
-    state: "open",
-    html_url: "#",
-    user: { login: "Abdullah", avatar_url: "https://i.pravatar.cc/40?img=5" },
-    comments: 3,
-    timeAgo: "2h ago",
-    updated_at: "2025-09-15T12:00:00Z",
-  },
-  {
-    id: 2,
-    number: 102,
-    title: "Fix dashboard layout",
-    body: "Responsive grid fixes",
-    state: "merged",
-    html_url: "#",
-    user: { login: "Sarah", avatar_url: "https://i.pravatar.cc/40?img=6" },
-    comments: 1,
-    timeAgo: "5h ago",
-    updated_at: "2025-09-14T18:00:00Z",
-  },
-  {
-    id: 3,
-    number: 103,
-    title: "Update README",
-    body: "Added installation instructions",
-    state: "closed",
-    html_url: "#",
-    user: { login: "John", avatar_url: "https://i.pravatar.cc/40?img=7" },
-    comments: 0,
-    timeAgo: "1d ago",
-    updated_at: "2025-09-13T15:30:00Z",
-  },
-  {
-    id: 4,
-    number: 104,
-    title: "Add logout button",
-    body: "Added logout button with confirmation",
-    state: "open",
-    html_url: "#",
-    user: { login: "Emma", avatar_url: "https://i.pravatar.cc/40?img=8" },
-    comments: 2,
-    timeAgo: "3h ago",
-    updated_at: "2025-09-15T10:00:00Z",
-  },
-  {
-    id: 5,
-    number: 105,
-    title: "Refactor API calls",
-    body: "Used Axios instead of fetch",
-    state: "merged",
-    html_url: "#",
-    user: { login: "Mike", avatar_url: "https://i.pravatar.cc/40?img=9" },
-    comments: 4,
-    timeAgo: "2d ago",
-    updated_at: "2025-09-12T14:00:00Z",
-  },
-];
+const PrList = ({ state = "open", onDataFetched, showDownloadButton = false, search }) => {
+  const [prs, setPrs] = useState([]);
+  const [error, setError] = useState(null);
 
-const PrList = ({ prList, filterState = "all"}) => {
-    const list= prList? prList: mockPRs
-  const filteredPRs =
-    filterState === "all"
-      ? list
-      : list.filter((pr) => pr.state === filterState);
+const fetchPRs = useCallback(async () => {
+    try {
+      setError(null);
 
-  const sortedPRs = filteredPRs
-    .sort((a, b) => {
-      const stateOrder = { open: 0, merged: 1, closed: 2 };
-      if (stateOrder[a.state] !== stateOrder[b.state]) {
-        return stateOrder[a.state] - stateOrder[b.state];
+      const octokit = new Octokit({
+        auth: import.meta.env.VITE_GITHUB_TOKEN,
+      });
+
+      const response = await octokit.request("GET /repos/{owner}/{repo}/pulls", {
+        owner: import.meta.env.VITE_GITHUB_ORG,
+        repo: import.meta.env.VITE_GITHUB_REPO_NAME,
+        state: state,
+        per_page: 100,
+        headers: {
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      });
+
+      const filteredPRs = response.data.filter(pr => pr.state === state);
+      setPrs(filteredPRs);
+
+      if (onDataFetched) {
+        onDataFetched(filteredPRs);
       }
-      return new Date(b.updated_at) - new Date(a.updated_at);
-    })
-    .slice(0, 2); 
+    } catch (err) {
+      setError("Failed to fetch pull requests. Please try again later.");
+      console.error(err);
+    }
+  }, [state, onDataFetched]);
 
-  return (
-    <div className="p-6">
-      <div className="grid grid-cols-1  gap-4"> 
-         {sortedPRs.map((pr) => ( 
-             <PROverviewCard key={pr.id} pr={pr} /> 
-          ))} 
-      </div>
-    </div>
+  useEffect(() => {
+    fetchPRs();
+  }, [fetchPRs]);
+
+  const filteredAndSearchedPRs = prs.filter(pr =>
+    pr.title.toLowerCase().includes(search.toLowerCase()) ||
+    pr.user.login.toLowerCase().includes(search.toLowerCase()) ||
+    pr.body.toLowerCase().includes(search.toLowerCase())
   );
-};
+
+  if (error) {
+    return (
+      <div className="text-red-600 text-center py-4">
+        Error getting PR data: {error}
+      </div>
+    );
+  }
+
+return (
+  <div>
+    {filteredAndSearchedPRs.length > 0 ? (
+      <div className="flex flex-col gap-4">
+        {filteredAndSearchedPRs.map((pr) => (
+          <PROverviewCard key={pr.id} pr={pr} />    
+        ))}
+        {showDownloadButton && (
+          <button>Download JSON</button>
+        )}
+      </div>
+    ) : ( 
+      <div className="text-center py-16 text-gray-500 bg-gray-50 rounded-lg border border-gray-200">
+        <h3 className="text-lg font-medium text-gray-600 mb-2">No {state} PRs Found</h3>
+      </div>
+    )}
+  </div>
+);
+}
 
 export default PrList;
