@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PrList from "../components/prComponents/PrList";
 import { Link } from "react-router-dom";
-import { downloadJSON } from "../utiils/downloadJSON.js";
+import { downloadJSON } from "../utils/downloadJSON";
 
 
 function OpenPRs({state="open"}) {

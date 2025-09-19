@@ -25,7 +25,7 @@ function PRListPage() {
           className="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#60B8DE] outline-none"
         />
 
-        <PrList filterState={filter} search={search} />
+        <PrList state={filter} search={search} />
       </div>
     </section>
   );
