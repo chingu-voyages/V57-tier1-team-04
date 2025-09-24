@@ -6,6 +6,7 @@ import { downloadJSON } from "../utils/downloadJSON";
 
 function ClosedPRs({state="closed"}) {
   const [prData, setPrData] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleDataFetched = (data) => {
     setPrData(data);
@@ -19,6 +20,16 @@ function ClosedPRs({state="closed"}) {
     <section className="flex items-center justify-center">
       <div className="main-content flex flex-col items-center bg-gray-100">
         <h2 className="main-h2 mb-4">Closed Pull Requests</h2>
+
+        <div className="w-full max-w-md mb-4">
+          <input
+            type="text"
+            placeholder="Search pull requests..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
 
 <PrList 
 state={state} 
