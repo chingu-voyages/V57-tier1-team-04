@@ -17,7 +17,7 @@
 
 @layer components {
   .header {
-    @apply flex justify-center gap-20 my-12;
+    @apply flex justify-center gap-20 my-12 items-baseline;
   }
 
   .main-heading {
