@@ -89,11 +89,14 @@ const fetchPRs = useCallback(async () => {
     );
   }
 
-  const filteredAndSearchedPRs = prs.filter(pr =>
-    pr.title.toLowerCase().includes(search.toLowerCase()) ||
-    pr.user.login.toLowerCase().includes(search.toLowerCase()) ||
-    pr.body.toLowerCase().includes(search.toLowerCase())
-  );
+  
+const searchTerm = (search || "").toLowerCase();
+
+const filteredAndSearchedPRs = prs.filter(pr =>
+  pr.title.toLowerCase().includes(searchTerm) ||
+  pr.user.login.toLowerCase().includes(searchTerm) ||
+  (pr.body?.toLowerCase() || "").includes(searchTerm)
+);
 
 return (
   <div>
