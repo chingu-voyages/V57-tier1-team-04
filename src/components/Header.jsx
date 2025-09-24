@@ -1,6 +1,20 @@
+import {useEffect, useState} from 'react';
 import { Link } from "react-router-dom";
 import "../App.css";
 function Header() {
+  const [time, setTime] = useState('');
+
+  useEffect(() => {
+    const updateClock = () => {
+      const now = new Date();
+      const options = {hour: '2-digit', minute: '2-digit', hour12:true};
+      setTime(now.toLocaleTimeString([], options));
+    };
+
+    updateClock(); //run once immediately
+    const timer = setInterval(updateClock, 1000); //update every second
+    return () => clearInterval(timer); //cleanup on unmount
+  }, []);
   return (
     <header>
       <Link to="/">
@@ -8,7 +22,7 @@ function Header() {
       </Link>
       <div className="header">
         <h1 className="main-heading">Merge Monitor</h1>
-        <span>07:21 AM</span>
+        <span>{time}</span>
       </div>
     </header>
   );
