@@ -5,12 +5,67 @@ import { RiGitClosePullRequestFill } from "react-icons/ri";
 import { LuGitPullRequestArrow } from "react-icons/lu";
 import { MdComment } from "react-icons/md";
 
-const PROverviewCard = ({ pr }) => {
+const PROverviewCard = ({ pr, state }) => {
+
+  const formatDate = (dateString) =>{
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });   
+  };
+  const getLastAction = (pr) => {
+    const events = [];
+
+    events.push({
+      type: "created",
+      date: new Date(pr.created_at),
+      action: "created",  
+    });
+
+    if (pr.comments && pr.comments.length > 0) {
+      pr.comments.forEach((comment) => {
+        events.push({
+          type: "commented",
+          date: new Date(comment.created_at),
+          action: "commented",
+        });
+      });
+    }
+
+    if (pr.reviews && pr.reviews.length > 0) {
+      pr.reviews.forEach((review) => {
+        if (review.state === "CHANGES_REQUESTED") {
+          events.push({
+            type: "changes_requested",
+            date: new Date(review.submitted_at),
+            action: "change requested",
+          });
+        } else if (review.state === "COMMENTED") {
+          events.push({
+            type: "commented",
+            date: new Date(review.submitted_at),
+            action: "commented",
+          });
+        }
+      });
+    }
+
+    events.sort((a, b) => b.date - a.date);
+    const lastEvent = events[0];
+    return{
+      action: lastEvent.action,
+      date: formatDate(lastEvent.date)
+    };  
+    };
+
+    const lastAction = state === "open" ? getLastAction(pr) : null;
+
   return (
     <div className="bg-white rounded-xl shadow p-6  w-full md:w-[650px] hover:shadow-xl transition-shadow flex flex-col gap-4">
       <div className="flex justify-between items-start ">
         <div className="flex items-center gap-2 pr-8">
-          {pr.state==="open"? <LuGitPullRequestArrow />: pr.state==="Closed"? <RiGitClosePullRequestFill/>:<IoIosGitMerge />}
+          {pr.state==="open"? <LuGitPullRequestArrow />: pr.state==="closed"? <RiGitClosePullRequestFill/>:<IoIosGitMerge />}
           <span
             className={`px-3 py-1 rounded-full font-semibold text-sm  ${
               pr.state === "open" ? "bg-green-100 text-green-800" : "bg-gray-200 text-gray-700"
@@ -19,24 +74,51 @@ const PROverviewCard = ({ pr }) => {
             {pr.state === "open" ? "OPEN" : pr.state.toUpperCase()}
           </span>
         </div>
-
-        <div className="flex items-center gap-1">
-          <span className="text-gray-500 text-lg">
-            {pr.state === "open" ? <IoMdStopwatch className="text-black"/> : pr.state === "closed" ? <FaXmark className="text-red-500"/> : <TiTick className="text-green-500"/>}
-          </span>
-          <span className="text-gray-600 text-sm font-medium">
-            {pr.state === "open"
-              ? "Pending"
-              : pr.state === "closed"
-              ? "Closed"
-              : "Merged"}
-          </span>
-        </div>
       </div>
 
       <div className="flex flex-col gap-1">
-        <h3 className="text-black font-semibold text-lg">{pr.title}</h3>
+        <a
+          href={pr.html_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-black font-semibold text-lg hover:text-blue-600 hover:underline transition-colors"
+          >
+            {pr.title}
+        </a>
         <p className="text-gray-500 text-sm">{pr.body || "No description provided"}</p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm bg-gray-50 p-3 rounded-lg">
+
+      <div>
+        <span className="font-medium text-gray-700">Created on: </span>
+        <span className="text-gray-600">{formatDate(pr.created_at)}</span>
+      </div>
+
+      {state === "closed" && pr.closed_at && (
+        <div>
+          <span className="font-medium text-gray-700">Closed on: </span>
+          <span className="text-gray-600">{formatDate(pr.closed_at)}</span>
+        </div>
+      )}
+
+        {state === "open" && lastAction && (
+          <div>
+            <span className="font-medium text-gray-700">Last Action: </span>
+            <span className="text-gray-600">{lastAction.action} on {lastAction.date}</span>
+          </div>
+        )}
+
+      <div>
+        <span className="font-medium text-gray-700">Reviewers: </span>
+        {pr.requested_reviewers && pr.requested_reviewers.length > 0 ? (
+          <span className="ml-1 text-gray-600">
+            {pr.requested_reviewers.map((rev) => rev.login).join(", ")}
+          </span>
+        ) : (
+          <span className="ml-1 text-gray-500">None assigned</span>
+        )}
+      </div>
       </div>
 
       <div className="flex justify-between items-center mt-2">
@@ -48,28 +130,22 @@ const PROverviewCard = ({ pr }) => {
           />
           <span className="text-gray-800 font-medium">{pr.user.login}</span>
         </div>
-        <div className="text-gray-500 text-xs">{pr.timeAgo || "2h ago"}</div>
       </div>
 
       <div className="flex justify-between items-center mt-2">
         <div className="flex items-center gap-2">
           <span className="text-green-600 font-semibold">#{pr.number}</span>
 
-          {pr.comments && (
+          {pr.comments && pr.comments.length > 0 && (
             <div className="flex items-center gap-1 text-gray-600 text-sm">
-              <span className="flex items-center justify-center gap-1 text-sm font-medium"><MdComment />{pr.comments}</span>
+              <span className="flex items-center justify-center gap-1 text-sm font-medium"><MdComment />{pr.comments.length}</span>
             </div>
           )}
         </div>
 
-        <a
-          href={pr.html_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-4 py-2 bg-[#60B8DE] text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
-        >
+        <div className="px-4 py-2 bg-[#60B8DE] text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
           {pr.state === "open" ? "Review" : "View PR"}
-        </a>
+        </div>
       </div>
     </div>
   );
