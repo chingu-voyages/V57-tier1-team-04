@@ -32,9 +32,9 @@ function ClosedPRs({state="closed"}) {
         </div>
 
 <PrList 
-state={state} 
-onDataFetched={handleDataFetched} 
-search=""
+  state={state} 
+  onDataFetched={handleDataFetched} 
+  search={searchTerm}
 />
 
         {prData && (
