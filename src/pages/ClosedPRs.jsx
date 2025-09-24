@@ -22,7 +22,6 @@ function ClosedPRs({state="closed"}) {
 
 <PrList 
 state={state} 
-showDownloadButton={true}
 onDataFetched={handleDataFetched} 
 search=""
 />
@@ -30,18 +29,12 @@ search=""
         {prData && (
           <button 
           onClick={handleDownload}
-          className="mb-4 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-md font-medium transition-colors"
+          className="mb-4 mt-4 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-md font-medium transition-colors"
         >
           Save JSON for Testing 
         </button>
         )}
 
-        <Link 
-          to="/pr-list/closed"
-          className=" px-6 py-2  bg-[#60B8DE] text-white rounded-lg hover:bg-blue-700 transition-colors mx-auto"
-        >
-          More
-        </Link>
       </div>
     </section>
   );

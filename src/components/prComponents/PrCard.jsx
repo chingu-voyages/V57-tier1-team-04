@@ -74,19 +74,6 @@ const PROverviewCard = ({ pr, state }) => {
             {pr.state === "open" ? "OPEN" : pr.state.toUpperCase()}
           </span>
         </div>
-
-        <div className="flex items-center gap-1">
-          <span className="text-gray-500 text-lg">
-            {pr.state === "open" ? <IoMdStopwatch className="text-black"/> : pr.state === "closed" ? <FaXmark className="text-red-500"/> : <TiTick className="text-green-500"/>}
-          </span>
-          <span className="text-gray-600 text-sm font-medium">
-            {pr.state === "open"
-              ? "Pending"
-              : pr.state === "closed"
-              ? "Closed"
-              : "Merged"}
-          </span>
-        </div>
       </div>
 
       <div className="flex flex-col gap-1">
@@ -143,7 +130,6 @@ const PROverviewCard = ({ pr, state }) => {
           />
           <span className="text-gray-800 font-medium">{pr.user.login}</span>
         </div>
-        <div className="text-gray-500 text-xs">{pr.timeAgo || "2h ago"}</div>
       </div>
 
       <div className="flex justify-between items-center mt-2">
