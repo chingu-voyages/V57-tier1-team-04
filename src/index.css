@@ -16,6 +16,9 @@
 }
 
 @layer components {
+  header {
+    @apply border-t-10 border-[#60B8DE];
+  }
   .header {
     @apply flex justify-center gap-20 my-12 items-baseline;
   }
