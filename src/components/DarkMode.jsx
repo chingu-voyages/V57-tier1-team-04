@@ -17,7 +17,7 @@ export default function DarkMode() {
       <div className="flex justify-end pt-10 pr-10">
       <button
       onMouseEnter={() => setDark(!dark)}
-      className="text-4xl bg-transparent border-none cursor-wait transition-transform duration-750 ease-in-out
+      className="fixed top-10 right-10 text-4xl bg-transparent border-none cursor-wait transition-transform duration-750 ease-in-out
              hover:scale-175"
       >
       {dark ? "🌕" : "🌑"}
