@@ -16,16 +16,20 @@
 }
 
 @layer components {
-  header {
-    @apply border-t-10 border-[#60B8DE];
+  .time {
+    @apply flex justify-center items-center mt-10 mb-0 text-sm text-[#60B8DE];
   }
-  .header {
-    @apply flex justify-center gap-20 my-12;
-  }
+header {
+  @apply border-t-10 border-[#60B8DE] flex flex-col items-center;
+}
 
-  .main-heading {
-    @apply text-4xl;
-  }
+.header-content {
+  @apply flex flex-col items-center justify-center my-12 text-center;
+}
+
+.main-heading {
+  @apply text-4xl text-center;
+}
   .main-h2 {
     @apply text-center text-[1.5rem] text-[#60B8DE] mx-1 my-3;
   }
@@ -42,11 +46,11 @@
   }
   /* Main content */
   main {
-    @apply flex-1 flex justify-center p-4;
+    @apply flex-1 flex justify-center mx-5 mb-8;
   }
 
   .main-content {
-    @apply m-2 p-4 md:m-2 md:p-4 w-full max-w-[1000px] border-2 border-[#60B8DE] rounded-xl bg-white;
+    @apply p-4 md:m-2 md:p-4 w-full max-w-[1000px] border-2 border-[#60B8DE] rounded-xl bg-white;
   }
 
   /* Footer */
