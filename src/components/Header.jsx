@@ -17,12 +17,13 @@ function Header() {
   }, []);
   return (
     <header>
-      <Link to="/">
+      <div className="header items-baseline">
+                      <Link to="/">
         <img className="logo" src="../src/assets/logo.png" />
-      </Link>
-      <div className="header">
-        <h1 className="main-heading">Merge Monitor</h1>
+      </Link> 
+        <h1 className="main-heading">Pull Request DashBoard</h1>
         <span>{time}</span>
+        
       </div>
     </header>
   );
