@@ -1,9 +1,10 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@100..900&family=Bitcount+Single+Ink:wght@100..900&family=Creepster&family=Smooch+Sans:wght@100..900&family=Truculenta:opsz,wght@12..72,100..900&display=swap");
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@100..900&family=Bitcount+Single+Ink:wght@100..900&family=Creepster&family=Truculenta:opsz,wght@12..72,100..900&display=swap");
 
 @layer base {
   body {
-    @apply m-0 p-0 min-h-screen flex flex-col bg-[#f9f9f9] text-[#333] font-['Poppins',sans-serif] transition-colors duration-900;
+    @apply m-0 p-0 min-h-screen flex flex-col bg-[#f9f9f9] text-[#333] transition-colors duration-900;
   }
   body.light-mode {
   @apply !bg-white !text-black;
@@ -12,7 +13,6 @@
 body.dark-mode {
   @apply !bg-black !text-white;
 }
-
   p {
     @apply my-2 text-base leading-relaxed;
   }
@@ -41,7 +41,7 @@ header {
     @apply text-center text-[1.5rem] text-[#60B8DE] mx-1 my-3;
   }
   .logo {
-    @apply -mb-12 block;
+    @apply -mb-12 block rounded-full border-3 border-[#60B8DE];
   }
 
   .nav-bar {
