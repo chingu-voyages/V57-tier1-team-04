@@ -6,7 +6,7 @@ function Header() {
   return (
     <header>
       <Link to="/">
-        <img className="logo" src="../src/assets/logo.png" />
+        <img className="logo hover:animate-spin" src="../src/assets/logo.png" />
       </Link> 
       <div className="header-content items-baseline">
         <h1 className="main-heading">Pull Request DashBoard</h1>

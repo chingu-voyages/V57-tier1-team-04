@@ -1,9 +1,9 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@100..900&family=Bitcount+Single+Ink:wght@100..900&family=Creepster&family=Truculenta:opsz,wght@12..72,100..900&display=swap");
 
 @layer base {
   body {
-    @apply m-0 p-0 min-h-screen flex flex-col bg-[#f9f9f9] text-[#333] font-['Poppins',sans-serif] transition-colors duration-300;
+    @apply m-0 p-0 min-h-screen flex flex-col bg-[#f9f9f9] text-[#333] font-['Poppins',sans-serif] transition-colors duration-900;
   }
   body.light-mode {
   @apply !bg-white !text-black;
@@ -49,15 +49,16 @@ header {
   }
 
   .nav-bar a {
-    @apply text-base px-5 py-2 border-[1.5px] border-[#60B8DE] rounded-xl bg-transparent cursor-pointer no-underline text-[#333] transition-all duration-300;
+    @apply text-base px-5 py-2 border-[1.5px] border-[#60B8DE] rounded-xl bg-transparent cursor-pointer no-underline text-[#333] transition-all duration-300 shadow-xl/10;
   }
+
   /* Main content */
   main {
     @apply flex-1 flex justify-center mx-5 mb-8;
   }
 
   .main-content {
-    @apply p-4 md:m-2 md:p-4 w-full max-w-[1000px] border-2 border-[#60B8DE] rounded-xl bg-white;
+    @apply p-4 md:m-2 md:p-4 w-full max-w-[1000px] border-4 border-[#60B8DE] rounded-xl bg-white shadow-xl/30;
   }
 
   /* Footer */
