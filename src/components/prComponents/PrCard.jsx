@@ -57,9 +57,9 @@ const PROverviewCard = ({ pr, state }) => {
       action: lastEvent.action,
       date: formatDate(lastEvent.date)
     };  
-    };
+  }
 
-    const lastAction = state === "open" ? getLastAction(pr) : null;
+  const lastAction = state === "open" ? getLastAction(pr) : null;
 
   return (
     <div className="bg-white rounded-xl shadow p-6  w-full md:w-[650px] hover:shadow-xl transition-shadow flex flex-col gap-4">
@@ -87,20 +87,18 @@ const PROverviewCard = ({ pr, state }) => {
         </a>
         <p className="text-gray-500 text-sm">{pr.body || "No description provided"}</p>
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm bg-gray-50 p-3 rounded-lg">
-
-      <div>
-        <span className="font-medium text-gray-700">Created on: </span>
-        <span className="text-gray-600">{formatDate(pr.created_at)}</span>
-      </div>
-
-      {state === "closed" && pr.closed_at && (
+<div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm bg-gray-50 p-3 rounded-lg">
         <div>
-          <span className="font-medium text-gray-700">Closed on: </span>
-          <span className="text-gray-600">{formatDate(pr.closed_at)}</span>
+          <span className="font-medium text-gray-700">Created on: </span>
+          <span className="text-gray-600">{formatDate(pr.created_at)}</span>
         </div>
-      )}
+
+        {state === "closed" && pr.closed_at && (
+          <div>
+            <span className="font-medium text-gray-700">Closed on: </span>
+            <span className="text-gray-600">{formatDate(pr.closed_at)}</span>
+          </div>
+        )}
 
         {state === "open" && lastAction && (
           <div>
@@ -109,18 +107,28 @@ const PROverviewCard = ({ pr, state }) => {
           </div>
         )}
 
-      <div>
-        <span className="font-medium text-gray-700">Reviewers: </span>
-        {pr.requested_reviewers && pr.requested_reviewers.length > 0 ? (
-          <span className="ml-1 text-gray-600">
-            {pr.requested_reviewers.map((rev) => rev.login).join(", ")}
-          </span>
-        ) : (
-          <span className="ml-1 text-gray-500">None assigned</span>
-        )}
-      </div>
-      </div>
+        <div>
+          <span className="font-medium text-gray-700">Reviewers: </span>
+          {(()=> {
+            if (state === "closed" && pr.reviews && pr.reviews.length > 0) {
+              const reviewers = [...new Set(pr.reviews.map((review) => review.user.login))];
+              return <span className="ml-1 text-gray-600">{reviewers.join(", ")}</span>;
+            }
 
+            if (pr.requested_reviewers && pr.requested_reviewers.length > 0) {
+              return (
+                <span className="ml-1 text-gray-600">
+                  {pr.requested_reviewers.map((rev) => rev.login).join(", ")}
+                </span>
+              );
+            }
+
+            return <span className="ml-1 text-gray-600">None</span>;
+          })()}
+        </div>
+      </div>  {/* CLOSE GRID HERE - Add this closing tag after line 129 */}
+
+      {/* Author section - now outside the grid */}
       <div className="flex justify-between items-center mt-2">
         <div className="flex items-center gap-2">
           <img
@@ -132,13 +140,16 @@ const PROverviewCard = ({ pr, state }) => {
         </div>
       </div>
 
+      {/* PR number and button section - now outside the grid */}
       <div className="flex justify-between items-center mt-2">
         <div className="flex items-center gap-2">
           <span className="text-green-600 font-semibold">#{pr.number}</span>
 
           {pr.comments && pr.comments.length > 0 && (
             <div className="flex items-center gap-1 text-gray-600 text-sm">
-              <span className="flex items-center justify-center gap-1 text-sm font-medium"><MdComment />{pr.comments.length}</span>
+              <span className="flex items-center justify-center gap-1 text-sm font-medium">
+                <MdComment />{pr.comments.length}
+              </span>
             </div>
           )}
         </div>
