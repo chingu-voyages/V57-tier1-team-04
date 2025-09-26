@@ -39,6 +39,14 @@ function NavTabs() {
       >
         Contributors
       </NavLink>
+      <NavLink
+        to="/about-us"
+        className={({ isActive }) =>
+          `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
+        }
+      >
+        About us
+      </NavLink>
     </nav>
   );
 }
