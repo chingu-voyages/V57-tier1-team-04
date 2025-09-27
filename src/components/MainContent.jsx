@@ -13,7 +13,7 @@ function MainLayout({ children }) {
       <DarkMode />
       <Header />
       <NavTabs />
-      <Time />
+      <Time/>
       <main>{children}</main>
       <Footer />
     </div>

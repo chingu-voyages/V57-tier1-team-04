@@ -42,7 +42,7 @@ function NavTabs() {
       <NavLink
         to="/about-us"
         className={({ isActive }) =>
-          `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
+                    `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
         }
       >
         About us

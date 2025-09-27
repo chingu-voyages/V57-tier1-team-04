@@ -14,7 +14,7 @@ body.dark-mode {
   @apply !bg-black !text-white;
 }
   p {
-    @apply my-2 text-base leading-relaxed;
+    @apply my-4 text-base leading-relaxed;
   }
 
   img {
@@ -23,8 +23,9 @@ body.dark-mode {
 }
 
 @layer components {
+
   .time {
-    @apply flex justify-center items-center mt-10 mb-0 text-sm text-[#60B8DE];
+    @apply hidden flex justify-center items-center mt-10 mb-0 text-sm text-[#60B8DE];
   }
 header {
   @apply flex flex-col items-center;
@@ -45,11 +46,11 @@ header {
   }
 
   .nav-bar {
-    @apply flex justify-center gap-4;
+    @apply flex justify-center gap-1;
   }
 
   .nav-bar a {
-    @apply text-base px-5 py-2 border-[1.5px] border-[#60B8DE] rounded-xl bg-transparent cursor-pointer no-underline text-[#333] transition-all duration-300 shadow-xl/10;
+    @apply text-base border-[2px] border-[#60B8DE] rounded-xl bg-transparent cursor-pointer no-underline text-[#333] transition-all duration-300 shadow-xl/10;
   }
 
   /* Main content */
@@ -58,7 +59,7 @@ header {
   }
 
   .main-content {
-    @apply p-4 md:m-2 md:p-4 w-full max-w-[1000px] border-4 border-[#60B8DE] rounded-xl bg-white shadow-xl/30;
+    @apply px-10 md:px-15 !py-10 md:m-2 w-full max-w-[1000px] border-4 border-[#60B8DE] rounded-xl bg-white shadow-xl/30;
   }
 
   /* Footer */
