@@ -18,7 +18,7 @@ function OpenPRs({state="open"}) {
 
   return (
     <section className="flex items-center justify-center">
-      <div className="main-content flex flex-col items-center bg-gray-100">
+      <div className="main-content open-cards">
         <h2 className="main-h2 mb-4">Open Pull Requests</h2>
 
         <div className="w-full max-w-md mb-4">

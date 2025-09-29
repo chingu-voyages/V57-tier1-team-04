@@ -62,8 +62,8 @@ const PROverviewCard = ({ pr, state }) => {
   const lastAction = state === "open" ? getLastAction(pr) : null;
 
   return (
-    <div className="bg-white rounded-xl shadow p-6  w-full md:w-[650px] hover:shadow-xl transition-shadow flex flex-col gap-4">
-      <div className="flex justify-between items-start ">
+    <div className="closed-cards">
+      <div className="flex justify-between items-start">
         <div className="flex items-center gap-2 pr-8">
           {pr.state==="open"? <LuGitPullRequestArrow />: pr.state==="closed"? <RiGitClosePullRequestFill/>:<IoIosGitMerge />}
           <span
@@ -81,13 +81,13 @@ const PROverviewCard = ({ pr, state }) => {
           href={pr.html_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-black font-semibold text-lg hover:text-blue-600 hover:underline transition-colors"
+          className="closed-cards-a text-black font-semibold text-lg hover:text-[#60B8DE] hover:underline transition-colors"
           >
             {pr.title}
         </a>
-        <p className="text-gray-500 text-sm">{pr.body || "No description provided"}</p>
+        <p className="closed-cards-p text-gray-500 text-sm">{pr.body || "No description provided"}</p>
       </div>
-<div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm bg-gray-50 p-3 rounded-lg">
+<div className="semi-card grid grid-cols-1 md:grid-cols-2 gap-3 text-sm bg-gray-50 p-3 rounded-lg">
         <div>
           <span className="font-medium text-gray-700">Created on: </span>
           <span className="text-gray-600">{formatDate(pr.created_at)}</span>
