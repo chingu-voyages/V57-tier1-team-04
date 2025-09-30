@@ -24,7 +24,7 @@ This project was built by four junior developers 👩‍💻👨‍💻 as a par
               href={`https://github.com/${contributor.github}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black font-semibold hover:text-[#60B8DE] hover:underline transition-colors"
+              className="contributor-name text-black font-semibold hover:text-[#60B8DE] hover:underline transition-colors"
             >
               {contributor.name}
             </a>

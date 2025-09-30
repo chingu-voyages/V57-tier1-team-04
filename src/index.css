@@ -30,14 +30,21 @@ body.dark-mode {
 header {
   @apply flex flex-col items-center;
 }
-
+.open-cards {
+  @apply flex flex-col items-center;
+}
 .closed-cards {
   @apply  bg-white rounded-xl shadow p-6  w-full md:w-[650px] hover:shadow-xl transition-shadow flex flex-col gap-4;
 }
- .dark-mode .closed-cards, .dark-mode .closed-cards-p, .dark-mode .closed-cards-a {
+.dark-mode .nav-bar a, .dark-mode .user-name, .dark-mode .pr-comments, .dark-mode .closed-cards, .dark-mode .closed-cards-p, .dark-mode .closed-cards-a {
   @apply bg-black !text-white;
 }
-
+.dark-mode .nav-bar a{
+@apply hover:!bg-[#60B8DE];
+}
+.dark-mode .contributor-name{
+  @apply !text-[#60B8DE];
+}
 .dark-mode .closed-cards {
   @apply shadow-lg shadow-sky-500/100;
 }
