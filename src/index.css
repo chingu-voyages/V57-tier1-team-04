@@ -4,15 +4,8 @@
 
 @layer base {
   body {
-    @apply m-0 p-0 min-h-screen flex flex-col text-[#333] transition-colors duration-900;
+    @apply m-0 p-0 min-h-screen flex flex-col text-[#333];
   }
-  body.light-mode {
-  @apply bg-gray-50 !text-black;
-}
-
-body.dark-mode {
-  @apply !bg-black !text-white;
-}
   p {
     @apply my-4 text-base leading-relaxed;
   }
@@ -23,7 +16,6 @@ body.dark-mode {
 }
 
 @layer components {
-
   .time {
     @apply hidden flex justify-center items-center mt-10 mb-0 text-sm text-[#60B8DE];
   }
@@ -35,6 +27,14 @@ header {
 }
 .closed-cards {
   @apply  bg-white rounded-xl shadow p-6  w-full md:w-[650px] hover:shadow-xl transition-shadow flex flex-col gap-4;
+}
+
+/* DARK MODE THEME */
+.mode-btn {
+  @apply fixed top-10 right-10 text-4xl bg-transparent border-none cursor-wait transition-transform duration-750 ease-in-out hover:scale-175;
+}
+.dark-mode {
+  @apply bg-black text-white transition-colors duration-900;
 }
 .dark-mode .nav-bar a, .dark-mode .user-name, .dark-mode .pr-comments, .dark-mode .closed-cards, .dark-mode .closed-cards-p, .dark-mode .closed-cards-a {
   @apply bg-black !text-white;
