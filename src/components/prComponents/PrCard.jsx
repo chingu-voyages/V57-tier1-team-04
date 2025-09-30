@@ -126,7 +126,7 @@ const PROverviewCard = ({ pr, state }) => {
             return <span className="ml-1 text-gray-600">None</span>;
           })()}
         </div>
-      </div>  {/* CLOSE GRID HERE - Add this closing tag after line 129 */}
+      </div> 
 
       {/* Author section - now outside the grid */}
       <div className="flex justify-between items-center mt-2">
@@ -136,7 +136,7 @@ const PROverviewCard = ({ pr, state }) => {
             alt={pr.user.login}
             className="w-8 h-8 rounded-full"
           />
-          <span className="text-gray-800 font-medium">{pr.user.login}</span>
+          <span className="user-name text-gray-800 font-medium">{pr.user.login}</span>
         </div>
       </div>
 
@@ -146,7 +146,7 @@ const PROverviewCard = ({ pr, state }) => {
           <span className="text-green-600 font-semibold">#{pr.number}</span>
 
           {pr.comments && pr.comments.length > 0 && (
-            <div className="flex items-center gap-1 text-gray-600 text-sm">
+            <div className="pr-comments flex items-center gap-1 text-gray-600 text-sm">
               <span className="flex items-center justify-center gap-1 text-sm font-medium">
                 <MdComment />{pr.comments.length}
               </span>
@@ -155,7 +155,17 @@ const PROverviewCard = ({ pr, state }) => {
         </div>
 
         <div className="px-4 py-2 bg-[#60B8DE] text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
-          {pr.state === "open" ? "Review" : "View PR"}
+        <a
+          href={pr.html_url}
+          target="_blank"
+          rel=""
+          
+          >
+            {pr.state === "open" ? "Review" : "View PR"}
+        </a>
+          
+          
+          
         </div>
       </div>
     </div>
@@ -163,3 +173,4 @@ const PROverviewCard = ({ pr, state }) => {
 };
 
 export default PROverviewCard;
+
