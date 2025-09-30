@@ -129,7 +129,7 @@ return (
       
       
       {/* Accordion Body: Show only if isOpen = true */}
-      
+      {/* When opacity-0 is applied, that wrapper becomes invisible, and grid-rows-[0fr] slides the invisible section upwards. */}
       <div 
         className={`
           grid transition-all duration-600 ease-in-out 
