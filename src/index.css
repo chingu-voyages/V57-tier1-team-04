@@ -16,9 +16,6 @@
 }
 
 @layer components {
-  .time {
-    @apply hidden flex justify-center items-center mt-10 mb-0 text-sm text-[#60B8DE];
-  }
 header {
   @apply flex flex-col items-center;
 }
