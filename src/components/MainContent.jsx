@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import { useState } from "react";
 import Theme from "../components/Theme";
 
-function MainLayout({ children }) {
+function MainContent({ children }) {
 const [curTheme, setCurTheme] = useState(false);
 
   return (
@@ -19,4 +19,4 @@ const [curTheme, setCurTheme] = useState(false);
   );
 }
 
-export default MainLayout;
+export default MainContent;

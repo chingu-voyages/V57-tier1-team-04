@@ -87,7 +87,7 @@ const PROverviewCard = ({ pr, state }) => {
         </a>
         <p className="closed-cards-p text-gray-500 text-sm">{pr.body || "No description provided"}</p>
       </div>
-<div className="semi-card grid grid-cols-1 md:grid-cols-2 gap-3 text-sm bg-gray-50 p-3 rounded-lg">
+<div className="semi-card grid grid-cols-1 md:grid-cols-2 gap-3 text-sm bg-gray-200 p-3 rounded-lg">
         <div>
           <span className="font-medium text-gray-700">Created on: </span>
           <span className="text-gray-600">{formatDate(pr.created_at)}</span>
