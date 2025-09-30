@@ -37,6 +37,7 @@ header {
  .dark-mode .closed-cards, .dark-mode .closed-cards-p, .dark-mode .closed-cards-a {
   @apply bg-black !text-white;
 }
+
 .dark-mode .closed-cards {
   @apply shadow-lg shadow-sky-500/100;
 }

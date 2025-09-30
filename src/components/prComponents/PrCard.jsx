@@ -155,7 +155,17 @@ const PROverviewCard = ({ pr, state }) => {
         </div>
 
         <div className="px-4 py-2 bg-[#60B8DE] text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
-          {pr.state === "open" ? "Review" : "View PR"}
+        <a
+          href={pr.html_url}
+          target="_blank"
+          rel=""
+          
+          >
+            {pr.state === "open" ? "Review" : "View PR"}
+        </a>
+          
+          
+          
         </div>
       </div>
     </div>
@@ -163,3 +173,4 @@ const PROverviewCard = ({ pr, state }) => {
 };
 
 export default PROverviewCard;
+
