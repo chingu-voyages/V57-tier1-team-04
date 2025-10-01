@@ -1,37 +1,45 @@
-
 import Header from "../components/Header";
 import NavTabs from "../components/NavTabs";
 import Time from "../components/Time";
 import Footer from "../components/Footer";
 import { useState } from "react";
-
+// import Chatbot from "./prComponents/Chatbot";
+import FloatingChatButton from "./FloatingChatButton";
 
 function MainLayout({ children }) {
-const [curTheme, setCurTheme] = useState(false);
+  const [curTheme, setCurTheme] = useState(false);
 
   return (
-    <div className={curTheme ? "dark-mode flex flex-col min-h-screen" : "flex flex-col min-h-screen"}>
+    <div
+      className={
+        curTheme
+          ? "dark-mode flex flex-col min-h-screen"
+          : "flex flex-col min-h-screen"
+      }
+    >
       <Theme curTheme={curTheme} setCurTheme={setCurTheme} />
       <Header />
       <NavTabs />
-      <Time/>
+      <Time />
       <main>{children}</main>
+      <FloatingChatButton />
+      {/* <Chatbot /> */}
       <Footer />
     </div>
   );
 }
 
-function Theme ({curTheme, setCurTheme}) {
+function Theme({ curTheme, setCurTheme }) {
   function changeTheme() {
     setCurTheme(!curTheme);
   }
   return (
     <div>
       <button className="mode-btn" onClick={changeTheme}>
-      {curTheme ? "🌕" : "🌑"}
+        {curTheme ? "🌕" : "🌑"}
       </button>
     </div>
-  )
+  );
 }
 
 export default MainLayout;
