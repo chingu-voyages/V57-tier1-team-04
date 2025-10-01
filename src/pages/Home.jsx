@@ -1,10 +1,10 @@
 function Home() {
   return (
     <div className="main-content">
-      <h2 className="main-h2">Welcome to PR Status Board 🚀</h2>
+      <h2 className="main-h2">Welcome to Pull Request DashBoard 🚀</h2>
       <p>
         Stay on top of your team’s workflow with a single glance. The{" "}
-        <strong>PR Status Board</strong> helps you track all pull requests —
+        <strong>Pull Request DashBoard</strong> helps you track all PRs —
         whether they’re open, merged, or closed — in one centralized dashboard.
       </p>
 
@@ -31,8 +31,8 @@ function Home() {
       </section>
 
       <section>
-        <h3>🚀 Why use PR Status Board?</h3>
         <p>
+        <h3>🚀 Why use Pull Request DashBoard?</h3>
           Teams often struggle with <em>delayed reviews</em> and
           <em>unclear PR ownership</em>. PR Status Board keeps everyone aligned,
           reduces bottlenecks, and helps you deliver faster.
@@ -43,8 +43,8 @@ function Home() {
         <h3>🧭 Get Started</h3>
         <p>
           Use the tabs above to navigate between
-          <strong>Open PRs</strong>, <strong>Closed PRs</strong>, and
-          <strong>Contributors</strong>.
+          <strong> Open PRs</strong>, <strong>Closed PRs</strong>, and
+          <strong> Contributors</strong>.
         </p>
         <p>Ready to ship better code? Let’s dive in! 🚀</p>
       </section>

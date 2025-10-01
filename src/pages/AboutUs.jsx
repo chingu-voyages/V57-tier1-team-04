@@ -9,7 +9,7 @@ function AboutUs() {
   return (
     <section >
       <div className="main-content">
-        <h2 className="main-h2">Who we are?</h2>
+        <h2 className="main-h2">Who We Are</h2>
         <p>
 This project was built by four junior developers 👩‍💻👨‍💻 as a part of Chingu Voyage 57, Tier 1. </p>
 

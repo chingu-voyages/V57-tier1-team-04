@@ -35,7 +35,7 @@ function Contributors() {
       <div className="main-content">
         <h2 className="main-h2">Contributors</h2>
         <p>
-Developers who work in this project:
+Developers who have worked on this project:
         </p>
 
           {error && <p className="text-red-600">{error}</p>}
