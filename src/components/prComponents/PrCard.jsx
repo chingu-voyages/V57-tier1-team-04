@@ -81,25 +81,30 @@ return (
       state === 'closed' ? 'bg-gray-100 border-gray-300' : 'bg-white border-blue-200'
   }`}>
       
-      {/* Accordion Title: Clickable space */}
+      {/* Accordion Title: Clickable button with aria-expanded */}
       
-      <div 
-        className="flex justify-between items-center cursor-pointer select-none pb-2"
+      <button 
+        className="flex justify-between items-center cursor-pointer select-none pb-2 w-full text-left bg-transparent border-0"
         onClick={toggleAccordion} // Assign toggle function
+        aria-expanded={isOpen} // Accessibility attribute
+        aria-label={`Toggle details for pull request #${pr.number}: ${pr.title}`}
       >
         <div className="flex items-center gap-2 pr-8">
                           <div className="flex items-center gap-3">
                     <img
                         src={pr.user.avatar_url}
-                        alt={pr.user.login}
+                        alt={`${pr.user.login}'s profile picture`}
                         className="w-8 h-8 rounded-full"
                     />
                     <span className="user-name text-gray-800 font-medium">{pr.user.login}</span>
 
                     {pr.comments && pr.comments.length > 0 && (
-                        <div className="pr-comments flex items-center gap-1 text-gray-600 text-sm">
+                        <div className="pr-comments flex items-center gap-1 text-gray-600 text-sm"
+                             aria-label={`${pr.comments.length} comment${pr.comments.length !== 1 ? 's' : ''}`}
+                            >
                             <span className="flex items-center justify-center gap-1 text-sm font-medium">
-                                <MdComment />{pr.comments.length}
+                                <MdComment aria-hidden="true" />
+                                {pr.comments.length}
                             </span>
                         </div>
                     )}
@@ -109,10 +114,12 @@ return (
 
         {/* Icon shows the status: open or close the card */}
 
-        <span className="text-xl font-bold text-gray-500 transform transition-transform duration-300 ml-4">
+        <span className="text-xl font-bold text-gray-500 transform transition-transform duration-300 ml-4"
+          aria-hidden="true"
+        >
           {isOpen ? '▲' : '▼'}
         </span>
-      </div>
+      </button>
 
       {/* PR Title*/}
 
@@ -122,6 +129,7 @@ return (
           target="_blank"
           rel="noopener noreferrer"
           className="text-black font-semibold text-xl hover:text-[#60B8DE] hover:underline transition-colors"
+          aria-label={`View pull request #${pr.number}: ${pr.title} on GitHub`} 
           >
             {pr.title}
         </a>
@@ -136,6 +144,7 @@ return (
           ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'} 
           overflow-hidden
         `}
+        aria-hidden={!isOpen} // Accessibility attribute
       >
         {/* Content Wrapper */}
         <div className="overflow-hidden">
@@ -192,7 +201,7 @@ return (
 
               {/* Left Group: PR Icon and Status Badge */}
               <div className="flex items-center gap-2">
-                <span>
+                <span aria-hidden="true">
                   {pr.state === "open" ? <LuGitPullRequestArrow /> : pr.state === "closed" ? <RiGitClosePullRequestFill /> : <IoIosGitMerge />}
                 </span>
                 <span
@@ -205,11 +214,12 @@ return (
               </div>
     
               {/* Right Group: Button */}
-              <div className="px-4 py-2 bg-[#60B8DE] text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
-                <a
+            <a
                   href={pr.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="px-4 py-2 bg-[#60B8DE] text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors inline-block"
+                  aria-label={`${pr.state === "open" ? 'Review' : 'View'} pull request #${pr.number} on GitHub`}
                 >
                   {pr.state === "open" ? "Review" : "View PR"}
                 </a>
@@ -217,7 +227,6 @@ return (
             </div>
           </div> 
         </div>
-    </div>
   );
 };
 
