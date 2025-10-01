@@ -16,9 +16,6 @@
 }
 
 @layer components {
-  .time {
-    @apply hidden flex justify-center items-center mt-10 mb-0 text-sm text-[#60B8DE];
-  }
 header {
   @apply flex flex-col items-center;
 }
@@ -26,7 +23,7 @@ header {
   @apply flex flex-col items-center;
 }
 .closed-cards {
-  @apply  bg-white rounded-xl shadow p-6  w-full md:w-[650px] hover:shadow-xl transition-shadow flex flex-col gap-4;
+  @apply  bg-gray-100 rounded-xl shadow p-6  w-full md:w-[650px] hover:shadow-xl transition-shadow flex flex-col gap-4;
 }
 
 /* DARK MODE THEME */
@@ -39,6 +36,9 @@ header {
 .dark-mode .nav-bar a, .dark-mode .user-name, .dark-mode .pr-comments, .dark-mode .closed-cards, .dark-mode .closed-cards-p, .dark-mode .closed-cards-a {
   @apply bg-black !text-white;
 }
+.dark-mode .main-content {
+  @apply bg-gray-900;
+}
 .dark-mode .nav-bar a{
 @apply hover:!bg-[#60B8DE];
 }
@@ -49,14 +49,13 @@ header {
   @apply shadow-lg shadow-sky-500/100;
 }
 
-.semi-card {
-  @apply dark:!bg-gray-700;
+.dark-mode .semi-card {
+  @apply !bg-gray-900;
 }
 
-.semi-card span {
-    @apply dark:!text-white;
+.dark-mode .semi-card span {
+    @apply !text-white;
   }
-
 
 .opened-cards {
    @apply flex flex-col items-center;

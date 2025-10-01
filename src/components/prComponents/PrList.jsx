@@ -102,8 +102,8 @@ return (
   <div>
     {filteredAndSearchedPRs.length > 0 ? (
       <div className="flex flex-col gap-4">
-        {filteredAndSearchedPRs.map((pr) => (
-          <PROverviewCard key={pr.id} pr={pr} state={state} />    
+        {filteredAndSearchedPRs.map((pr, index) => (
+          <PROverviewCard key={pr.id} pr={pr} state={state} defaultOpen={index < 3} />    
         ))}
       </div>
     ) : ( 

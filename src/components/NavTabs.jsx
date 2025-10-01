@@ -45,7 +45,7 @@ function NavTabs() {
                     `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
         }
       >
-        About us
+        About Us
       </NavLink>
     </nav>
   );
