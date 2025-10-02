@@ -22,13 +22,25 @@ function OpenPRs({state="open"}) {
         <h2 id="open-prs-heading" className="main-h2 mb-4">Open Pull Requests</h2>
 
         <div className="w-full max-w-md mb-4">
+
+          {/* 1. Visually Hidden Label */}
+          <label htmlFor="pr-search-open" className="sr-only">
+            Search Open Pull Requests
+          </label>
+
+          {/* 2. Input Description (aria-describedby target) */}
+          <p id="search-desc-open" className="sr-only">
+            Search by contributor's name, pull request title, or description.
+          </p>
+
           <input
             type="text"
-            placeholder="Search pull requests..."
+            placeholder="🔎 Contributor's name, pull request title & description..." // Full descriptive placeholder
+            id="pr-search-open" // Unique ID
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            aria-label="Search open pull requests by title, author, or description"
+            aria-describedby="search-desc-open"
           />
         </div>
 {/* Replace search="" with search={searchTerm}: */}

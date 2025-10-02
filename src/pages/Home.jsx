@@ -30,8 +30,8 @@ function Home() {
         </ul>
       </section>
 
-      <section aria-labelledby="why-heading">
-        <h3 id="why-heading">🚀 Why use Pull Request DashBoard?</h3>
+      <section aria-labelledby="why-heading" className="mt-6">
+        <h3 id="why-heading">🚀 Why Use Pull Request DashBoard?</h3>
         <p>
           Teams often struggle with <em>delayed reviews</em> and{" "}
           <em>unclear PR ownership</em>. PR Status Board keeps everyone aligned,
