@@ -1,13 +1,13 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@100..900&family=Bitcount+Single+Ink:wght@100..900&family=Creepster&family=Smooch+Sans:wght@100..900&family=Truculenta:opsz,wght@12..72,100..900&display=swap");
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 @layer base {
   body {
-    @apply m-0 p-0 min-h-screen flex flex-col bg-[#f9f9f9] text-[#333] font-['Poppins',sans-serif];
+    @apply m-0 p-0 min-h-screen flex flex-col text-[#333];
   }
-
   p {
-    @apply my-2 text-base leading-relaxed;
+    @apply my-4 text-base leading-relaxed;
   }
 
   img {
@@ -16,30 +16,82 @@
 }
 
 @layer components {
-  .main-heading {
-    @apply text-4xl;
+header {
+  @apply flex flex-col items-center;
+}
+.open-cards {
+  @apply flex flex-col items-center;
+}
+.closed-cards {
+  @apply  bg-gray-100 rounded-xl shadow p-6  w-full md:w-[650px] hover:shadow-xl transition-shadow flex flex-col gap-4;
+}
+
+/* DARK MODE THEME */
+.mode-btn {
+  @apply fixed top-10 right-10 text-4xl bg-transparent border-none cursor-wait transition-transform duration-750 ease-in-out hover:scale-175;
+}
+.dark-mode {
+  @apply bg-black text-white transition-colors duration-900;
+}
+.dark-mode .nav-bar a, .dark-mode .user-name, .dark-mode .pr-comments, .dark-mode .closed-cards, .dark-mode .closed-cards-p, .dark-mode .closed-cards-a {
+  @apply bg-black !text-white;
+}
+.dark-mode .main-content {
+  @apply bg-gray-900;
+}
+.dark-mode .nav-bar a{
+@apply hover:!bg-[#60B8DE];
+}
+.dark-mode .contributor-name{
+  @apply !text-[#60B8DE];
+}
+.dark-mode .closed-cards {
+  @apply shadow-lg shadow-sky-500/100;
+}
+
+.dark-mode .semi-card {
+  @apply !bg-gray-900;
+}
+
+.dark-mode .semi-card span {
+    @apply !text-white;
   }
+
+.opened-cards {
+   @apply flex flex-col items-center;
+}
+
+.header-content {
+  @apply flex flex-col items-center justify-center my-12 text-center;
+}
+
+.main-heading {
+  @apply text-4xl text-center;
+}
   .main-h2 {
     @apply text-center text-[1.5rem] text-[#60B8DE] mx-1 my-3;
   }
   .logo {
-    @apply mb-10;
+    @apply -mb-12 block rounded-full border-3 border-[#60B8DE];
   }
+
   .nav-bar {
-    @apply flex justify-center gap-4;
+    @apply flex justify-center gap-1;
   }
 
   .nav-bar a {
-    @apply text-base px-5 py-2 border-[1.5px] border-[#60B8DE] rounded-xl bg-transparent cursor-pointer no-underline text-[#333] transition-all duration-300;
+    @apply text-base border-[2px] border-[#60B8DE] rounded-xl bg-transparent cursor-pointer no-underline text-[#333] transition-all duration-300 shadow-xl/10;
   }
+
   /* Main content */
   main {
-    @apply flex-1 flex justify-center p-4;
+    @apply flex-1 flex justify-center mx-5 mb-8;
   }
 
   .main-content {
-    @apply m-2 p-4 md:m-2 md:p-4 w-full max-w-[1000px] border-2 border-[#60B8DE] rounded-xl bg-white;
+    @apply px-10 md:px-15 !py-10 md:m-2 w-full max-w-[1000px] border-4 border-[#60B8DE] rounded-xl shadow-xl/30;
   }
+
 
   /* Footer */
   footer {
