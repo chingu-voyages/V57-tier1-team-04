@@ -6,7 +6,7 @@ const PrList = ({ state = "open", onDataFetched, search }) => {
   const capitalize = (word) => word.charAt(0).toUpperCase() + word.slice(1);
   const [prs, setPrs] = useState([]);
   const [error, setError] = useState(null);
-
+  
 const fetchPRs = useCallback(async () => {
     try {
       setError(null);
@@ -76,10 +76,10 @@ const fetchPRs = useCallback(async () => {
       console.error(err);
     }
   }, [state, onDataFetched]);
-
+//To prevent constant rendering, removing the dependency "[fetchPRs]" and leaving it empty "[]"
   useEffect(() => {
     fetchPRs();
-  }, [fetchPRs]);
+  }, []);
 
     if (error) {
     return (

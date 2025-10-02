@@ -8,7 +8,8 @@ import { LuGitPullRequestArrow } from "react-icons/lu";
 import { MdComment } from "react-icons/md";
 
 const PROverviewCard = ({ pr, state, defaultOpen = false }) => {
-//state for accordion, by default false
+
+  //state for accordion, by default false
 const [isOpen, setIsOpen] = useState(defaultOpen);
 
 //toggle function for accordion
@@ -90,7 +91,7 @@ return (
         aria-label={`Toggle details for pull request #${pr.number}: ${pr.title}`}
       >
         <div className="flex items-center gap-2 pr-8">
-                          <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3">
                     <img
                         src={pr.user.avatar_url}
                         alt={`${pr.user.login}'s profile picture`}
@@ -140,7 +141,7 @@ return (
       {/* When opacity-0 is applied, that wrapper becomes invisible, and grid-rows-[0fr] slides the invisible section upwards. */}
       <div 
         className={`
-          grid transition-all duration-600 ease-in-out 
+          grid transition-all duration-700 ease-in-out 
           ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'} 
           overflow-hidden
         `}
