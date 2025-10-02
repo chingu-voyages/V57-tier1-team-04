@@ -88,6 +88,7 @@ return (
         className="flex justify-between items-center cursor-pointer select-none pb-2 w-full text-left bg-transparent border-0"
         onClick={toggleAccordion} // Assign toggle function
         aria-expanded={isOpen} // Accessibility attribute
+        aria-controls={`pr-details-${pr.number}`} //Wire the button to the content
         aria-label={`Toggle details for pull request #${pr.number}: ${pr.title}`}
       >
         <div className="flex items-center gap-2 pr-8">
@@ -130,7 +131,6 @@ return (
           target="_blank"
           rel="noopener noreferrer"
           className="text-black font-semibold text-xl hover:text-[#60B8DE] hover:underline transition-colors"
-          aria-label={`View pull request #${pr.number}: ${pr.title} on GitHub`} 
           >
             {pr.title}
         </a>
@@ -145,7 +145,7 @@ return (
           ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'} 
           overflow-hidden
         `}
-        aria-hidden={!isOpen} // Accessibility attribute
+        id={`pr-details-${pr.number}`} //Give content a unique ID
       >
         {/* Content Wrapper */}
         <div className="overflow-hidden">

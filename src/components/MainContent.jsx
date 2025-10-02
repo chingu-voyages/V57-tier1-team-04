@@ -9,7 +9,11 @@ function MainContent({ children }) {
 const [curTheme, setCurTheme] = useState(false);
 
   return (
-    <div className={curTheme ? "dark-mode flex flex-col min-h-screen" : "flex flex-col min-h-screen"}>
+    <div 
+    className={curTheme ? "dark-mode flex flex-col min-h-screen" : "flex flex-col min-h-screen"}
+    aria-live="polite" //Added for subtle status updates like theme change
+    >
+
       <Theme curTheme={curTheme} setCurTheme={setCurTheme} />
       <Header />
       <NavTabs />

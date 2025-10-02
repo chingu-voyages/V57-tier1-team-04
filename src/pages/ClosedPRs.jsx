@@ -17,17 +17,30 @@ function ClosedPRs({state="closed"}) {
   };
 
   return (
-    <section className="flex items-center justify-center">
+    <section className="flex items-center justify-center" aria-labelledby="closed-prs-heading">
       <div className="main-content flex flex-col items-center">
-        <h2 className="main-h2 mb-4">Closed Pull Requests</h2>
+        <h2 id="closed-prs-heading" className="main-h2 mb-4">Closed Pull Requests</h2>
 
         <div className="w-full max-w-md mb-4">
+
+          {/* 1. Visually Hidden Label */}
+          <label htmlFor="pr-search" className="sr-only">
+            Search Pull Requests
+          </label>
+
+          {/* 2. Input Description (aria-describedby target */}
+          <p id="search-desc" className="sr-only">
+            Search by contributor's name, pull request title, or description.
+          </p>
+
           <input
             type="text"
             placeholder="🔎 Contributor's name, pull request title & description..."
+            id="pr-search"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            aria-describedby="search-desc"
           />
         </div>
 
