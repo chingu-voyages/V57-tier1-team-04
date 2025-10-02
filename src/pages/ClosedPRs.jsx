@@ -46,7 +46,7 @@ function ClosedPRs({state="closed"}) {
 
 <PrList 
   state={state} 
-  onDataFetched={handleDataFetched} 
+  onDataFetched={handleDataFetched}
   search={searchTerm}
 />
 

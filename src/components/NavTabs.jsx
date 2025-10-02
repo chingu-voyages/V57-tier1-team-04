@@ -29,7 +29,7 @@ function NavTabs() {
           `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
         }
       >
-        Closed PRs
+       Closed PRs
       </NavLink>
       <NavLink
         to="/contributors"

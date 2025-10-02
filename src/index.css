@@ -17,7 +17,7 @@
 
 @layer components {
 header {
-  @apply flex flex-col items-center;
+  @apply flex flex-col items-center border-t-20 border-[#60B8DE] pt-6;
 }
 .open-cards {
   @apply flex flex-col items-center;
@@ -28,7 +28,7 @@ header {
 
 /* DARK MODE THEME */
 .mode-btn {
-  @apply fixed top-10 right-10 text-4xl bg-transparent border-none cursor-wait transition-transform duration-750 ease-in-out hover:scale-175;
+  @apply fixed top-10 right-10 text-4xl bg-transparent border-none cursor-wait transition-transform duration-700 ease-in-out hover:scale-175;
 }
 .dark-mode {
   @apply bg-black text-white transition-colors duration-900;
