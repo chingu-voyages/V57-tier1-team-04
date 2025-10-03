@@ -75,12 +75,7 @@ const toggleAccordion = () => {
 
 
 return (
-
-  //basic card style for accordion
-
-    <div className={`p-4 rounded-lg shadow-md border-2 transition-all duration-300 ${
-      state === 'closed' ? 'bg-gray-100 border-gray-300' : 'bg-white border-blue-200'
-  }`}>
+    <div className="card">
       
       {/* Accordion Title: Clickable button with aria-expanded */}
       
@@ -219,7 +214,7 @@ return (
                   href={pr.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 bg-[#60B8DE] text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors inline-block"
+                  className="px-4 py-2 bg-[#60B8DE] text-white rounded-lg text-sm font-medium hover:bg-gray-600 transition-colors inline-block"
                   aria-label={`${pr.state === "open" ? 'Review' : 'View'} pull request #${pr.number} on GitHub`}
                 >
                   {pr.state === "open" ? "Review" : "View PR"}
