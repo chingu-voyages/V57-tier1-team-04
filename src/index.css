@@ -1,6 +1,5 @@
-
-@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@100..900&family=Bitcount+Single+Ink:wght@100..900&family=Creepster&family=Smooch+Sans:wght@100..900&family=Truculenta:opsz,wght@12..72,100..900&display=swap");
 @import "tailwindcss";
+
 
 @layer base {
   body {
@@ -17,7 +16,10 @@
 
 @layer components {
 header {
-  @apply flex flex-col items-center;
+  @apply flex flex-col items-center border-t-20 border-[#60B8DE] pt-6;
+}
+.card {
+  @apply  p-4 rounded-lg shadow-md border-2 transition-all duration-300 bg-gray-50 border-gray-300;
 }
 .open-cards {
   @apply flex flex-col items-center;
@@ -28,7 +30,7 @@ header {
 
 /* DARK MODE THEME */
 .mode-btn {
-  @apply fixed top-10 right-10 text-4xl bg-transparent border-none cursor-wait transition-transform duration-750 ease-in-out hover:scale-175;
+  @apply fixed top-10 right-10 text-4xl bg-transparent border-none cursor-wait transition-transform duration-700 ease-in-out hover:scale-175;
 }
 .dark-mode {
   @apply bg-black text-white transition-colors duration-900;
@@ -42,9 +44,16 @@ header {
 .dark-mode .nav-bar a{
 @apply hover:!bg-[#60B8DE];
 }
+.dark-mode .card a, .dark-mode .card p {
+  @apply bg-black !text-white;
+}
+.dark-mode .card {
+    @apply bg-black !text-white border-gray-500;
+}
 .dark-mode .contributor-name{
   @apply !text-[#60B8DE];
 }
+
 .dark-mode .closed-cards {
   @apply shadow-lg shadow-sky-500/100;
 }
