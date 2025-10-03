@@ -2,6 +2,7 @@
 import Header from "../components/Header";
 import NavTabs from "../components/NavTabs";
 import Footer from "../components/Footer";
+import FloatingChatButton from "../components/FloatingChatButton";
 import { useState } from "react";
 import Theme from "../components/Theme";
 
@@ -18,6 +19,8 @@ const [curTheme, setCurTheme] = useState(false);
       <Header />
       <NavTabs />
       <main>{children}</main>
+      <FloatingChatButton />
+      {/* <Chatbot /> */}
       <Footer />
     </div>
   );
