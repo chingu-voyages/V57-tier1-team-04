@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import NavTabs from "../components/NavTabs";
 import Footer from "../components/Footer";
+import FloatingChatButton from "../components/FloatingChatButton";
 import { useState } from "react";
 
 
@@ -18,10 +19,8 @@ const [curTheme, setCurTheme] = useState(false);
       <Theme curTheme={curTheme} setCurTheme={setCurTheme} />
       <Header />
       <NavTabs />
-      <Time/>
       <main>{children}</main>
       <FloatingChatButton />
-      {/* <Chatbot /> */}
       <Footer />
     </div>
   );
