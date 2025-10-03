@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
 
 function NavTabs() {
-  const baseStyle = "px-4 py-2 rounded-md";
+  const baseStyle = "px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#60B8DE] focus:ring-offset-2";
   const activeStyle = "bg-[#60B8DE] text-white";
   const inactiveStyle = "text-gray-700 hover:bg-gray-200";
 
   return (
-    <nav className="nav-bar">
+    <nav className="nav-bar" aria-label="Main navigation">
       <NavLink
         to="/"
         className={({ isActive }) =>

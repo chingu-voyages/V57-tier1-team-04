@@ -8,7 +8,8 @@ import { LuGitPullRequestArrow } from "react-icons/lu";
 import { MdComment } from "react-icons/md";
 
 const PROverviewCard = ({ pr, state, defaultOpen = false }) => {
-//state for accordion, by default false
+
+  //state for accordion, by default false
 const [isOpen, setIsOpen] = useState(defaultOpen);
 
 //toggle function for accordion
@@ -87,10 +88,11 @@ return (
         className="flex justify-between items-center cursor-pointer select-none pb-2 w-full text-left bg-transparent border-0"
         onClick={toggleAccordion} // Assign toggle function
         aria-expanded={isOpen} // Accessibility attribute
+        aria-controls={`pr-details-${pr.number}`} //Wire the button to the content
         aria-label={`Toggle details for pull request #${pr.number}: ${pr.title}`}
       >
         <div className="flex items-center gap-2 pr-8">
-                          <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3">
                     <img
                         src={pr.user.avatar_url}
                         alt={`${pr.user.login}'s profile picture`}
@@ -129,7 +131,6 @@ return (
           target="_blank"
           rel="noopener noreferrer"
           className="text-black font-semibold text-xl hover:text-[#60B8DE] hover:underline transition-colors"
-          aria-label={`View pull request #${pr.number}: ${pr.title} on GitHub`} 
           >
             {pr.title}
         </a>
@@ -140,11 +141,11 @@ return (
       {/* When opacity-0 is applied, that wrapper becomes invisible, and grid-rows-[0fr] slides the invisible section upwards. */}
       <div 
         className={`
-          grid transition-all duration-600 ease-in-out 
+          grid transition-all duration-700 ease-in-out 
           ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'} 
           overflow-hidden
         `}
-        aria-hidden={!isOpen} // Accessibility attribute
+        id={`pr-details-${pr.number}`} //Give content a unique ID
       >
         {/* Content Wrapper */}
         <div className="overflow-hidden">
