@@ -47,8 +47,8 @@ header {
 .dark-mode .card a, .dark-mode .card p {
   @apply bg-black !text-white;
 }
-.dark-mode .card {
-    @apply bg-black !text-white border-gray-500;
+.dark-mode .card, .dark-mode .no-found-box {
+    @apply !bg-black !text-white !border-gray-500;
 }
 .dark-mode .contributor-name{
   @apply !text-[#60B8DE];
@@ -65,6 +65,15 @@ header {
 .dark-mode .semi-card span {
     @apply !text-white;
   }
+.dark-mode .chatbox-container{
+  @apply !bg-gray-800 text-gray-500;
+}
+.dark-mode .chatbox-submit {
+  @apply !bg-gray-800;
+}
+.dark-mode .chatbox-message {
+  @apply !bg-gray-800 !text-white;
+}
 
 .opened-cards {
    @apply flex flex-col items-center;
