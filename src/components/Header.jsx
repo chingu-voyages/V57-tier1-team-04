@@ -12,6 +12,7 @@ function Header() {
   //conditionally set the className for the logo
   const logoClassName = isClosedPRsRoute ? "logo animate-spin" : "logo";
 
+
   return (
     <header>
       <Link to
