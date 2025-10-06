@@ -25,10 +25,10 @@ const SimpleChatbox = ({ onClose }) => {
   };
 
   return (
-    <div className="flex flex-col h-full bg-gray-50 rounded-lg">
+    <div className="chatbox-container flex flex-col h-full bg-gray-50 rounded-lg">
       
       {/* Chat Header */}
-      <div className="flex items-center justify-between p-4 bg-blue-600 text-white rounded-t-lg shadow-md">
+      <div className="flex items-center justify-between p-4 bg-[#60B8DE] text-white rounded-t-lg shadow-md">
         <h2 className="text-lg font-semibold">AI Support Chat</h2>
         <button 
           onClick={onClose} 
@@ -47,9 +47,9 @@ const SimpleChatbox = ({ onClose }) => {
             className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             <div 
-              className={`max-w-[75%] px-4 py-2 rounded-xl text-sm shadow-md ${
+              className={`chatbox-message max-w-[75%] px-4 py-2 rounded-xl text-sm shadow-md ${
                 msg.sender === 'user' 
-                  ? 'bg-blue-500 text-white rounded-br-none' 
+                  ? 'bg-[#60B8DE] text-white rounded-br-none' 
                   : 'bg-white text-gray-800 rounded-tl-none border border-gray-200'
               }`}
             >
@@ -60,18 +60,18 @@ const SimpleChatbox = ({ onClose }) => {
       </div>
 
       {/* Message Input */}
-      <form onSubmit={handleSendMessage} className="p-4 border-t border-gray-200 bg-white rounded-b-lg">
-        <div className="flex space-x-2">
+      <form onSubmit={handleSendMessage} className="chatbox-submit p-4 border-t border-gray-200 bg-white rounded-b-lg">
+        <div className="chatbox-message flex space-x-2">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message..."
-            className="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#60B8DE]"
           />
           <button
             type="submit"
-            className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-200"
+            className="bg-[#60B8DE] text-white p-3 rounded-lg hover:bg-[#60B8DE] transition duration-200"
             aria-label="Send Message"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
@@ -109,7 +109,7 @@ const FloatingChatButton = () => {
           shadow-lg 
           transition-all duration-300 hover:scale-110 
           focus:outline-none cursor-pointer
-          ${isOpen ? 'bg-red-500 hover:bg-red-600 rotate-45' : 'bg-blue-600 hover:bg-blue-700'}
+          ${isOpen ? 'bg-gray-500 hover:bg-gray-500 rotate-45' : 'bg-[#60B8DE] hover:bg-gray-500'}
         `}
         aria-label={isOpen ? "Close Chat" : "Open Chat"}
       >
@@ -147,7 +147,7 @@ const FloatingChatButton = () => {
           "
         >
           {/* Render the actual chat interface component */}
-          <SimpleChatbox onClose={toggleChatbox} />
+          <SimpleChatbox className="chatbox-message" onClose={toggleChatbox} />
         </div>
       )}
     </div>

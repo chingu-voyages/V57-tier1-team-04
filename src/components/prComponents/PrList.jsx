@@ -107,8 +107,8 @@ return (
         ))}
       </div>
     ) : ( 
-<div className="text-center py-8 px-8 text-gray-500 bg-gray-50 rounded-lg border border-gray-200 m-4">
-  <h3 className="text-lg font-medium text-gray-600 mb-2">No {capitalize(state)} PRs Found</h3>
+<div className="no-found-box text-center py-8 px-8 text-gray-500 bg-gray-50 rounded-lg border border-gray-200 m-4">
+  <h3 className="text-lg font-medium mb-2">No {capitalize(state)} PRs Found</h3>
 </div>
     )}
   </div>
