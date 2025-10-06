@@ -89,7 +89,7 @@ const fetchPRs = useCallback(async () => {
     );
   }
 
-  
+
 const searchTerm = (search || "").toLowerCase();
 
 const filteredAndSearchedPRs = prs.filter(pr =>
