@@ -1,13 +1,12 @@
-
-@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single+Ink:wght@100..900&family=Bitcount+Single+Ink:wght@100..900&family=Creepster&family=Smooch+Sans:wght@100..900&family=Truculenta:opsz,wght@12..72,100..900&display=swap");
 @import "tailwindcss";
+
 
 @layer base {
   body {
     @apply m-0 p-0 min-h-screen flex flex-col text-[#333];
   }
   p {
-    @apply my-4 text-base leading-relaxed;
+    @apply my-4 text-xs md:text-base leading-relaxed;
   }
 
   img {
@@ -17,7 +16,10 @@
 
 @layer components {
 header {
-  @apply flex flex-col items-center;
+  @apply flex flex-col items-center border-t-20 border-[#60B8DE] pt-6;
+}
+.card {
+  @apply mx-5 p-4 rounded-lg shadow-md border-2 transition-all duration-300 bg-gray-50 border-gray-300;
 }
 .open-cards {
   @apply flex flex-col items-center;
@@ -28,7 +30,7 @@ header {
 
 /* DARK MODE THEME */
 .mode-btn {
-  @apply fixed top-10 right-10 text-4xl bg-transparent border-none cursor-wait transition-transform duration-750 ease-in-out hover:scale-175;
+  @apply fixed top-10 right-10 md:text-4xl bg-transparent border-none cursor-wait transition-transform duration-700 ease-in-out hover:scale-175;
 }
 .dark-mode {
   @apply bg-black text-white transition-colors duration-900;
@@ -42,9 +44,16 @@ header {
 .dark-mode .nav-bar a{
 @apply hover:!bg-[#60B8DE];
 }
+.dark-mode .card a, .dark-mode .card p {
+  @apply bg-black !text-white;
+}
+.dark-mode .card, .dark-mode .no-found-box {
+    @apply !bg-black !text-white !border-gray-500;
+}
 .dark-mode .contributor-name{
   @apply !text-[#60B8DE];
 }
+
 .dark-mode .closed-cards {
   @apply shadow-lg shadow-sky-500/100;
 }
@@ -56,6 +65,15 @@ header {
 .dark-mode .semi-card span {
     @apply !text-white;
   }
+.dark-mode .chatbox-container{
+  @apply !bg-gray-800 text-gray-500;
+}
+.dark-mode .chatbox-submit {
+  @apply !bg-gray-800;
+}
+.dark-mode .chatbox-message {
+  @apply !bg-gray-800 !text-white;
+}
 
 .opened-cards {
    @apply flex flex-col items-center;
@@ -66,17 +84,17 @@ header {
 }
 
 .main-heading {
-  @apply text-4xl text-center;
+  @apply md:text-4xl text-center md:m-5;
 }
   .main-h2 {
-    @apply text-center text-[1.5rem] text-[#60B8DE] mx-1 my-3;
+    @apply text-center md:text-[1.5rem] text-[#60B8DE] mx-1 my-3;
   }
   .logo {
     @apply -mb-12 block rounded-full border-3 border-[#60B8DE];
   }
 
   .nav-bar {
-    @apply flex justify-center gap-1;
+    @apply flex justify-center gap-1 m-2 md:mb-8 md:mt-8;
   }
 
   .nav-bar a {
@@ -89,7 +107,7 @@ header {
   }
 
   .main-content {
-    @apply px-10 md:px-15 !py-10 md:m-2 w-full max-w-[1000px] border-4 border-[#60B8DE] rounded-xl shadow-xl/30;
+    @apply text-xs md:text-base p-1 md:px-15 md:!py-10 md:m-2 w-full max-w-[1000px] border-4 border-[#60B8DE] rounded-xl shadow-xl/30;
   }
 
 

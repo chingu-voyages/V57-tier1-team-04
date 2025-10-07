@@ -16,12 +16,17 @@ function OpenPRs({state="open"}) {
     downloadJSON(prData, 'open-prs');
   };
 
+    //to clear the search input
+  const handleClear = () => {
+    setSearchTerm("");
+  }
+
   return (
     <section className="flex items-center justify-center" aria-labelledby="open-prs-heading">
       <div className="main-content open-cards">
         <h2 id="open-prs-heading" className="main-h2 mb-4">Open Pull Requests</h2>
 
-        <div className="w-full max-w-md mb-4">
+        <div className="w-full max-w-md mb-4 relative">
 
           {/* 1. Visually Hidden Label */}
           <label htmlFor="pr-search-open" className="sr-only">
@@ -39,9 +44,10 @@ function OpenPRs({state="open"}) {
             id="pr-search-open" // Unique ID
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#60B8DE]"
             aria-describedby="search-desc-open"
           />
+          {searchTerm && <button className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 focus:outline-none p-1" onClick={handleClear}>&#x2715;</button>}
         </div>
 {/* Replace search="" with search={searchTerm}: */}
 <PrList 
