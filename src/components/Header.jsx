@@ -21,7 +21,7 @@ function Header() {
       >
         <img 
         className={logoClassName}
-        src="../public/logo.png" 
+        src="/logo.png" 
         alt="Project Dashboard Logo - Click to go to Home" />
       </Link> 
       <div className="header-content items-baseline">
