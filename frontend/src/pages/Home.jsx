@@ -32,7 +32,7 @@ function Home() {
 
       <section>
         <p>
-        <h3>🚀 Why use Pull Request DashBoard?</h3>
+        🚀 Why use Pull Request DashBoard?
           Teams often struggle with <em>delayed reviews</em> and
           <em>unclear PR ownership</em>. PR Status Board keeps everyone aligned,
           reduces bottlenecks, and helps you deliver faster.

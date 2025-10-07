@@ -8,7 +8,7 @@ function NavTabs() {
   return (
     <nav className="nav-bar">
       <NavLink
-        to="/home"
+        to="/"
         className={({ isActive }) =>
           `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
         }

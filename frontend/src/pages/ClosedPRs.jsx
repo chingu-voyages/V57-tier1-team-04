@@ -1,6 +1,5 @@
 import { useState } from "react";
 import PrList from "../components/prComponents/PrList";
-import { Link } from "react-router-dom";
 import { downloadJSON } from "../utils/downloadJSON";
 
 
@@ -31,11 +30,11 @@ function ClosedPRs({state="closed"}) {
           />
         </div>
 
-<PrList 
-  state={state} 
-  onDataFetched={handleDataFetched} 
-  search={searchTerm}
-/>
+        <PrList 
+          state={state} 
+          onDataFetched={handleDataFetched} 
+          search={searchTerm}
+        />
 
         {prData && (
           <button 
