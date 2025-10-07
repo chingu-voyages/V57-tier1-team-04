@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer>
-      <img src="../public/logo.png" alt="Team Blue Project Logo" />
+      <img src="/logo.png" alt="Team Blue Project Logo" />
       <p>
         Coded with 🩵 by <b>Team Blue</b>
       </p>
