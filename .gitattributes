@@ -1,0 +1,9 @@
+# Auto-normalize text files
+* text=auto
+
+# Force certain extensions to always be LF (optional)
+*.js text eol=lf
+*.ts text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.html text eol=lf
