@@ -41,4 +41,4 @@ coding!
 - Teammate name #4: Abdullah Corduk [GitHub](https://github.com/corduka) / [LinkedIn](https://www.linkedin.com/in/cordukabdullah/)
 
 ## Deployment
-[GitHub PR Dashboard](https://git-together-chi.vercel.app/)
+[GitHub PR Dashboard](https://v57-tier1-team-04.vercel.app/)
