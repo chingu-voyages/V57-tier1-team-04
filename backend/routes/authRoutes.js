@@ -27,14 +27,39 @@ router.get(
     });
 
     // Redirect to frontend
-    res.redirect(`${process.env.FRONTEND_URL}/home`);
+    res.redirect(`${process.env.FRONTEND_URL}`);
   }
 );
 
 // Logout
 router.get("/logout", (req, res) => {
   res.clearCookie("auth");
-  res.redirect(process.env.FRONTEND_URL);
+  res.redirect(`${process.env.FRONTEND_URL}/login`);
 });
+
+router.get("/user", (req, res) => {
+  const token = req.cookies?.auth;
+
+  if (!token) {
+    return res.json({
+      userType: "guest",
+      user:"Guest",
+    });
+  }
+
+  try {
+    const user = jwt.verify(token, process.env.JWT_SECRET);
+    return res.json({
+      userType: "github",
+      user: user ,
+    });
+  } catch (err) {
+    return res.json({
+      userType: "guest",
+      user: { name: "Guest" },
+    });
+  }
+});
+
 
 export default router;
