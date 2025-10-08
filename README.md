@@ -40,5 +40,8 @@ coding!
   ...
 - Teammate name #4: Abdullah Corduk [GitHub](https://github.com/corduka) / [LinkedIn](https://www.linkedin.com/in/cordukabdullah/)
 
+- Voyage Guide: Lindsay Allen [GitHub](https://github.com/lkallen) / [LinkedIn](https://www.linkedin.com/in/lindsay-allen-54b46937/)
+
 ## Deployment
+
 [GitHub PR Dashboard](https://v57-tier1-team-04.vercel.app/)
