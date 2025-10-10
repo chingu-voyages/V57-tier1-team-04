@@ -1,4 +1,4 @@
-# 🔀 Merge Monitor
+# 🔀 Pull Request DashBoard
 
 A GitHub Pull Request management tool built by Team 04 during Chingu Voyage 57 - Tier 1.
 
