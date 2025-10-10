@@ -2,7 +2,7 @@
 
 A GitHub Pull Request management tool built by Team 04 during Chingu Voyage 57 - Tier 1.
 
-## Overview
+## 🔍 Overview
 
 As junior developers learning to work in teams, we realized how important it is to stay on top of pull requests. This project gave us the opportunity to develop a clear, visual way to track PRs, reviews, and comments in our repository. 
 
@@ -10,7 +10,7 @@ We built this tool to help development teams quickly see the status of all PRs a
 
 This was the first time any of us worked on a collaborative project! It helped us learn React, Tailwind CSS, work with APIs, and practice real-world Git workflows.
 
-## Features
+## 🚀 Features
 
 - **View Pull Requests**: Display all open or closed PRs from a team's GitHub repository
 - **Search Functionality**: Filter PRs by title, author, or description
@@ -20,24 +20,27 @@ This was the first time any of us worked on a collaborative project! It helped u
 - **Real-time Data**: Fetches live data directly from GitHub's API
 - **Clean UI**: Built with Tailwind CSS for a modern, professional look
 
-## Live Demo
+## 🎥 Live Demo
 
-🚀 [View Live Project](#) _(https://v57-tier1-team-04.vercel.app/)_
+ [View Live Project](#) _(https://v57-tier1-team-04.vercel.app/)_
 
-## Screenshots
+## 📸 Screenshots
 
-_Screenshots coming soon! We're still finalizing our design._
+<img width="790" height="771" alt="Screenshot 2025-10-10 at 12 01 14 PM" src="https://github.com/user-attachments/assets/41884d45-d0e3-4a83-83c4-c298c94cfa32" />
+<img width="790" height="636" alt="Screenshot 2025-10-10 at 12 02 39 PM" src="https://github.com/user-attachments/assets/43c8f4c4-95e9-40d9-a5b2-031632b19f74" />
+<img width="795" height="636" alt="Screenshot 2025-10-10 at 12 03 40 PM" src="https://github.com/user-attachments/assets/da50b9f7-e311-4d2b-ba60-9f63b18f25a6" />
 
-## Running the Project
+
+## 📈 Running the Project
 
 Want to run this project locally? Follow these steps:
 
-### Prerequisites
+### 📜 Prerequisites
 
 - Node.js installed on your computer
 - A GitHub Personal Access Token ([How to create one](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens))
 
-### Installation Steps
+### 🛠️ Installation & Setup
 
 1. **Clone the repository**
    ```bash
@@ -65,7 +68,10 @@ Want to run this project locally? Follow these steps:
 
 5. **Open your browser** and navigate to `http://localhost:5173` (or the port shown in your terminal)
 
-## Dependencies
+6. **Deploy**
+   We chose Vercel. To use Vercel, import the repo, set environment variables, and deploy.
+
+## 🧩 Dependencies
 
 This project was built with the following technologies:
 
@@ -74,7 +80,7 @@ This project was built with the following technologies:
 - [Octokit](https://github.com/octokit/octokit.js) - GitHub's official API client for JavaScript
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
 
-## What We Learned
+## 🧠 What We Learned
 
 As a team of junior developers, this project taught us:
 
@@ -86,7 +92,7 @@ As a team of junior developers, this project taught us:
 - Implementing accessibility best practices with ARIA labels and keyboard navigation
 - The importance of clear communication and documentation
 
-## Meet the Team
+## 👥 Meet the Team
 
 We're a team of 4 junior developers from around the world, brought together by [Chingu](https://chingu.io/)!
 
@@ -95,15 +101,17 @@ We're a team of 4 junior developers from around the world, brought together by [
 - **Gursimran Singh** - [GitHub](https://github.com/Gursimranb127) | [LinkedIn](https://www.linkedin.com/in/gursimransinghonly)
 - **Cat Young** - [GitHub](https://github.com/CatYoung018) | [LinkedIn](https://linkedin.com/in/catrilliayoung)
 
-## Future Enhancements
+## 💡 Future Enhancements
 
 - [ ] Enhance AI Chatbot by integrating Google Gemini API 
-- [ ] Include PR statistics and analytics
+- [ ] Merge statistics and activity graphs
 - [ ] Implement GitHub login to elimiate personal access tokens
 - [ ] Add Back to Top navigation button for improved accessibility on long PR lists
+- [ ] Multi-user dashboard view
+- [ ] Integration with Jira or Slack
+- [ ] Real-time GitHub webhook updates
 
-
-## Contributing
+## 🤝 Contributing
 
 This was built as part of a Chingu Voyage learning project, but we welcome feedback and suggestions! If you spot a bug or have ideas for improvements:
 
@@ -112,12 +120,12 @@ This was built as part of a Chingu Voyage learning project, but we welcome feedb
 
 We review PRs regularly and appreciate any contributions that help us learn!
 
-## Acknowledgments
+## 🙏 Acknowledgments
 
 - **Chingu** - For organizing this amazing collaborative learning experience
-- **Our Voyage Guide** - For guidance and support throughout the project
+- **[Lindsay](https://github.com/lkallen)** - For guidance and support throughout the project
 
-## License
+## ✅ License
 
 This project is open source and available under the [MIT License](LICENSE).
 
