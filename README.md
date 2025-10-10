@@ -24,11 +24,9 @@ This was the first time any of us worked on a collaborative project! It helped u
 
  [View Live Project](#) _(https://v57-tier1-team-04.vercel.app/)_
 
-## 📸 Screenshots
+## 📸 App in Action
+![Appinaction](https://github.com/user-attachments/assets/afdfe5a6-0eff-4175-869f-26a1cd3c26da)
 
-<img width="790" height="771" alt="Screenshot 2025-10-10 at 12 01 14 PM" src="https://github.com/user-attachments/assets/41884d45-d0e3-4a83-83c4-c298c94cfa32" />
-<img width="790" height="636" alt="Screenshot 2025-10-10 at 12 02 39 PM" src="https://github.com/user-attachments/assets/43c8f4c4-95e9-40d9-a5b2-031632b19f74" />
-<img width="795" height="636" alt="Screenshot 2025-10-10 at 12 03 40 PM" src="https://github.com/user-attachments/assets/da50b9f7-e311-4d2b-ba60-9f63b18f25a6" />
 
 
 ## 📈 Running the Project
