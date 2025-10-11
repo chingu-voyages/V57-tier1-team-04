@@ -22,7 +22,7 @@ This was the first time any of us worked on a collaborative project! It helped u
 
 ## 🎥 Live Demo
 
- [View Live Project](#) _(https://v57-tier1-team-04.vercel.app/)_
+<a href="https://v57-tier1-team-04.vercel.app/" target="blank" rel="noopener noreferrer">View Live Project</a>
 
 ## 📸 App in Action
 ![Appinaction](https://github.com/user-attachments/assets/afdfe5a6-0eff-4175-869f-26a1cd3c26da)
