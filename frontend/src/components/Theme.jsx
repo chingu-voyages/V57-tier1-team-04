@@ -4,8 +4,16 @@ function Theme({ curTheme, setCurTheme }) {
   }
   return (
     <div>
-      <button className="mode-btn" onClick={changeTheme}>
+      <button 
+       className="mode-btn" 
+       onClick={changeTheme}
+       aria-label={`Switch to ${curTheme ? 'Light' : 'Dark'} Theme`}
+       aria-pressed={curTheme}
+       >
+        <span aria-hidden="true">
+
         {curTheme ? "🌕" : "🌑"}
+        </span>
       </button>
     </div>
   );

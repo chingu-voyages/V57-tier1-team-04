@@ -4,13 +4,19 @@ import { useEffect } from "react";
 import { getCurrentUser } from "../api/authApi";
 
 const Login = () => {
-  const { loginAsGuest, loginAsGithub } = useAuth();
+  const { loginAsGuest, loginAsGithub,auth } = useAuth();
   const navigate=useNavigate()
 
   const handleGuestLogin = () => {
     loginAsGuest();
     navigate("/")
   };
+
+  useEffect(() => {
+    if (auth?.userType) {
+      navigate("/", { replace: true }); // or "/dashboard"
+    }
+  }, [auth, navigate]);
 
   const handleGithubLogin = () => {
     const backendUrl = import.meta.env.VITE_BACKEND_URL;

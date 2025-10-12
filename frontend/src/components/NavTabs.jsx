@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
 
 function NavTabs() {
-  const baseStyle = "px-4 py-2 rounded-md";
+  const baseStyle = "md:mx-1 md:px-4 md:py-2 md:text-base p-1 text-xs rounded-md focus:outline-none focus:ring-2 focus:ring-[#60B8DE] focus:ring-offset-2";
   const activeStyle = "bg-[#60B8DE] text-white";
   const inactiveStyle = "text-gray-700 hover:bg-gray-200";
 
   return (
-    <nav className="nav-bar">
+    <nav className="nav-bar" aria-label="Main navigation">
       <NavLink
         to="/"
         className={({ isActive }) =>
@@ -29,7 +29,7 @@ function NavTabs() {
           `${baseStyle} ${isActive ? activeStyle : inactiveStyle}`
         }
       >
-        Closed PRs
+       Closed PRs
       </NavLink>
       <NavLink
         to="/contributors"

@@ -6,6 +6,6 @@ export const getCurrentUser=async()=>{
 }
 
 export const logoutUser=async()=>{
-    const res= await axios.post("/auth/logout")
+    const res= await axios.get("/auth/logout")
     return res.data;
 }

@@ -51,9 +51,10 @@ export const AuthProvider = ({ children }) => {
 
   // Logout
   const logout = async () => {
-    await logoutUser();
+    await logoutUser(); // hits backend logout
     setAuth({ user: null, userType: null, loading: false });
   };
+
 
   return (
     <AuthContext.Provider

@@ -9,11 +9,12 @@ const PrList = ({ state = "open", onDataFetched, search }) => {
   const [prs, setPrs] = useState([]);
   const [error, setError] = useState(null);
   const { auth } = useAuth();
+  const [loading, setLoading]= useState(false);
 
   const fetchPRs = useCallback(async () => {
+    setLoading(true);
     try {
       setError(null);
-      let prsWithDetails = [];
 
       // ----- Guest login flow -----
       if (auth.userType === "guest") {
@@ -28,22 +29,13 @@ const PrList = ({ state = "open", onDataFetched, search }) => {
             owner: import.meta.env.VITE_GITHUB_ORG,
             repo: import.meta.env.VITE_GITHUB_REPO_NAME,
             state,
-            per_page: 20, // ⬅️ changed from 100 to 20
+            per_page: 100, 
             headers: { "X-GitHub-Api-Version": "2022-11-28" },
           }
         );
+        const filteredPRs = response.data.filter((pr) => pr.state === state)
 
-        if (!response?.data) {
-          setPrs([]);
-          return;
-        }
-
-        // Limit the result even if GitHub sends more
-        const filteredPRs = response.data
-          .filter((pr) => pr.state === state)
-          .slice(0, 20); // ⬅️ just to be safe
-
-        prsWithDetails = await Promise.all(
+        const prsWithDetails = await Promise.all(
           filteredPRs.map(async (pr) => {
             try {
               const [reviewsResponse, commentsResponse] = await Promise.all([
@@ -69,8 +61,8 @@ const PrList = ({ state = "open", onDataFetched, search }) => {
 
               return {
                 ...pr,
-                reviews: reviewsResponse?.data || [],
-                comments: commentsResponse?.data || [],
+                reviews: reviewsResponse.data,
+                comments: commentsResponse.data ,
               };
             } catch (err) {
               console.error(`Error fetching details for PR #${pr.number}:`, err);
@@ -78,23 +70,26 @@ const PrList = ({ state = "open", onDataFetched, search }) => {
             }
           })
         );
+        setPrs(prsWithDetails);
+        if (onDataFetched) {
+        onDataFetched(prsWithDetails);}
       } 
-      // ----- Logged-in GitHub user flow -----
       else if (auth.userType === "github") {
-        prsWithDetails = await fetchPrs(state); // backend call
+        const prsWithDetails = await fetchPrs(state);
+        setPrs(prsWithDetails);
+        if (onDataFetched) {
+        onDataFetched(prsWithDetails.allPRs);}
       }
-
-      setPrs(prsWithDetails);
-      if (onDataFetched) onDataFetched(prsWithDetails);
     } catch (err) {
-      console.error(err);
       setError("Failed to fetch pull requests. Please try again later.");
+      console.error(err);
     }
-  }, [state, onDataFetched, auth.userType]);
+    setLoading(false);
+  }, [state, onDataFetched, auth.user]);
 
   useEffect(() => {
-    if (auth.userType) fetchPRs(); // fetch only when auth status is determined
-  }, [fetchPRs, auth.userType]);
+    if (auth.userType) {fetchPRs()}; // fetch only when auth status is determined
+  }, []);
 
   if (error) {
     return (
@@ -104,9 +99,8 @@ const PrList = ({ state = "open", onDataFetched, search }) => {
     );
   }
 
-  if (!prs) return null; // avoid undefined errors
-
   const searchTerm = (search || "").toLowerCase();
+
   const filteredAndSearchedPRs = prs.filter(
     (pr) =>
       pr.title?.toLowerCase().includes(searchTerm) ||
@@ -116,26 +110,38 @@ const PrList = ({ state = "open", onDataFetched, search }) => {
 
   return (
     <div>
-      {filteredAndSearchedPRs.length > 0 ? (
-        <div className="flex flex-col gap-4">
-          {filteredAndSearchedPRs.map((pr, index) => (
-            <PROverviewCard
-              key={pr.id}
-              pr={pr}
-              state={state}
-              defaultOpen={index < 3}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-8 px-8 text-gray-500 bg-gray-50 rounded-lg border border-gray-200 m-4">
-          <p className="text-lg font-medium text-gray-600 mb-2">
-            No {capitalize(state)} PRs Found
-          </p>
-        </div>
-      )}
+      {
+        loading===true ?
+        (
+          <div className="flex items-center justify-center">
+            <img src="/search.gif" alt="Searching prs" className="bg-gray-200 rounded-2xl size-50"/>
+          </div>
+        ):
+          filteredAndSearchedPRs.length > 0 ? (
+              <div className="flex flex-col gap-4 text-gray-200">
+                {filteredAndSearchedPRs.map((pr, index) => (
+                  <PROverviewCard
+                    key={pr.id}
+                    pr={pr}
+                    state={state}
+                    defaultOpen={index < 3}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-8 px-8 text-gray-500 bg-gray-50 rounded-lg border border-gray-200 m-4">
+                <h3 className="text-lg font-medium text-gray-600 mb-2">
+                  No {capitalize(state)} PRs Found
+                </h3>
+              </div>
+            )
+      }
     </div>
   );
 };
 
 export default PrList;
+
+
+
+

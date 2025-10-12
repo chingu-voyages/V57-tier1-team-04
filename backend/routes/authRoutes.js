@@ -10,7 +10,7 @@ router.get("/github", passport.authenticate("github", { scope: ["repo"], session
 // GitHub OAuth callback
 router.get(
   "/github/callback",
-  passport.authenticate("github", { failureRedirect: "/" , session: false}),
+  passport.authenticate("github", { failureRedirect: `${process.env.FRONTEND_URL}/login` , session: false}),
   (req, res) => {
     // Issue JWT
     const token = jwt.sign(
@@ -33,8 +33,12 @@ router.get(
 
 // Logout
 router.get("/logout", (req, res) => {
-  res.clearCookie("auth");
-  res.redirect(`${process.env.FRONTEND_URL}/login`);
+  res.clearCookie("auth", {
+      httpOnly: true,
+      secure: false,
+      sameSite: "lax"
+    });
+    res.status(200).json({ message: "Logged out successfully" });
 });
 
 router.get("/user", (req, res) => {
